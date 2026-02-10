@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# TechToons — Kids Tech Coloring Book
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive, browser-based coloring book for kids featuring tech-themed SVG illustrations. Pick a color, choose a tool, and click to paint robots, circuits, rockets, and more.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **6 coloring pages** — Robot Buddy, Circuit Board, AI Brain, Space Rocket, Tech Drone, VR Headset
+- **Click-to-fill coloring** — each graphic is an inline SVG with individually paintable regions
+- **Color palette** — 16 curated swatches plus a full-spectrum custom color picker
+- **3 tools** — Paint Bucket, Eraser, Rainbow (random color per click)
+- **Undo / Reset** — 20-level undo stack and full-page reset
+- **Export to PNG** — save your colored artwork as a high-resolution image
+- **Responsive** — works on desktop and mobile
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **React 19** + **TypeScript**
+- **Vite** — dev server and bundler
+- **react-colorful** — lightweight color picker (2.8 KB gzipped)
+- **react-router-dom** — client-side routing
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Node.js](https://nodejs.org/) (v18 or later)
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Install & Run
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/Colkam4l/comic-tech.git
+cd comic-tech
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the URL shown in the terminal (typically `http://localhost:5173/`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+## Project Structure
+
+```
+src/
+├── graphics/          # SVG illustration components
+│   ├── RobotBuddy.tsx
+│   ├── CircuitBoard.tsx
+│   ├── AiBrain.tsx
+│   ├── SpaceRocket.tsx
+│   ├── TechDrone.tsx
+│   └── VrHeadset.tsx
+├── components/        # Reusable UI components
+│   ├── ColorPalette.tsx / .css
+│   ├── BrushSelector.tsx / .css
+│   ├── Toolbar.tsx / .css
+│   └── PageNavigation.tsx / .css
+├── pages/             # Route-level pages
+│   ├── HomePage.tsx / .css
+│   └── ColoringPage.tsx / .css
+├── App.tsx            # Router setup
+├── main.tsx           # Entry point
+└── index.css          # Design system & global styles
+```
+
+## Design
+
+Built with a strict design system to avoid a generic, AI-generated look:
+
+- **Typography** — Fredoka (headings) + Nunito (body) via Google Fonts
+- **Palette** — Teal primary, coral accent, slate text on off-white
+- **Spacing** — 8px scale throughout
+- **Border radius** — 12px consistently
+- **No** purple gradients, sparkle emojis, hover bounce animations, or placeholder content
+
+## License
+
+MIT
