@@ -1,0 +1,74 @@
+.coloring-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(var(--toolbar-height) + var(--space-4));
+}
+
+.coloring-page__top {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: var(--space-3) var(--space-5) 0;
+}
+
+.coloring-page__title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-3);
+}
+
+.coloring-page__canvas {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 var(--space-5);
+}
+
+.coloring-page__svg-wrapper {
+    background: var(--color-canvas-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-5);
+    max-width: 500px;
+    width: 100%;
+}
+
+.coloring-page__svg-wrapper svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Region hover feedback */
+.coloring-page__svg-wrapper svg [data-region]:hover {
+    filter: brightness(0.95);
+}
+
+@media (max-width: 768px) {
+    .coloring-page__top {
+        padding: var(--space-2) var(--space-4) 0;
+    }
+
+    .coloring-page__canvas {
+        padding: 0 var(--space-4);
+    }
+
+    .coloring-page__svg-wrapper {
+        padding: var(--space-4);
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coloring-page__svg-wrapper {
+        padding: var(--space-3);
+    }
+
+    .coloring-page__title {
+        font-size: var(--text-xl);
+    }
+}

@@ -1,0 +1,41 @@
+.brush-selector {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.brush-selector__btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-card);
+    color: var(--color-text-secondary);
+    transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.brush-selector__btn:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.brush-selector__btn--active {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.brush-selector__btn--active:hover {
+    border-color: var(--color-primary-dark);
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-inverse);
+}
+
+@media (max-width: 768px) {
+    .brush-selector__btn {
+        width: 36px;
+        height: 36px;
+    }
+}

@@ -1,0 +1,96 @@
+.color-palette {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    position: relative;
+}
+
+.color-palette__swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.color-palette__swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-border);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.color-palette__swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-palette__swatch--active {
+    border-color: var(--color-text);
+    box-shadow: 0 0 0 2px var(--color-card), 0 0 0 4px var(--color-text);
+}
+
+.color-palette__custom-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-card);
+    color: var(--color-text-secondary);
+    transition: border-color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.color-palette__custom-btn:hover {
+    border-color: var(--color-primary);
+}
+
+.color-palette__picker-popover {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    margin-bottom: var(--space-2);
+    z-index: 100;
+    background: var(--color-card);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+}
+
+.color-palette__picker-popover .react-colorful {
+    width: 180px !important;
+    height: 160px !important;
+}
+
+.color-palette__preview {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .color-palette__swatches {
+        gap: 4px;
+    }
+
+    .color-palette__swatch {
+        width: 24px;
+        height: 24px;
+    }
+
+    .color-palette__custom-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .color-palette__preview {
+        width: 28px;
+        height: 28px;
+    }
+}
