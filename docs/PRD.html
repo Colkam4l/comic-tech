@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechToons — Product Requirements Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --color-primary: #0d9488;
+            --color-primary-light: #14b8a6;
+            --color-accent: #f97066;
+            --color-bg: #f8fafc;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-text-secondary: #64748b;
+            --color-border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--color-card);
+            padding: 48px 56px;
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header */
+        .doc-header {
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .doc-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 32px;
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .meta-grid strong {
+            color: var(--color-text);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #e6fffa;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+
+        /* Sections */
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-text);
+            margin: 36px 0 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 20px 0 8px;
+        }
+
+        h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 16px 0 6px;
+            color: var(--color-text);
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--color-primary);
+            padding: 8px 16px;
+            margin: 12px 0;
+            background: #f0fdfa;
+            font-style: italic;
+            color: var(--color-primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 20px;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            text-align: left;
+            padding: 8px 12px;
+            border: 1px solid var(--color-border);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--color-text-secondary);
+        }
+
+        td {
+            padding: 8px 12px;
+            border: 1px solid var(--color-border);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background: #fafbfc;
+        }
+
+        /* Checkmarks */
+        .check {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .cross {
+            color: #ef4444;
+        }
+
+        /* Lists */
+        ul,
+        ol {
+            margin: 8px 0 16px 24px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* Feature cards */
+        .feature-card {
+            background: #fafbfc;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .feature-card.implemented {
+            border-left-color: #22c55e;
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+        }
+
+        .priority-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 1px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+
+        .p0 {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .p1 {
+            background: #fffbeb;
+            color: #d97706;
+        }
+
+        .p2 {
+            background: #f0f9ff;
+            color: #0284c7;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            white-space: pre;
+            overflow-x: auto;
+            border: 1px solid var(--color-border);
+        }
+
+        /* Architecture */
+        .arch {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                box-shadow: none;
+                padding: 24px 32px;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            table,
+            .feature-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 32px 0;
+        }
+
+        .new-tag {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 6px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="doc-header">
+            <h1>TechToons — Product Requirements Document</h1>
+            <div class="meta-grid">
+                <div><strong>Product:</strong> TechToons</div>
+                <div><strong>Version:</strong> 1.1</div>
+                <div><strong>Date:</strong> March 2, 2026</div>
+                <div><strong>Status:</strong> <span class="status-badge">Updated — v0.2</span></div>
+            </div>
+        </div>
+
+        <!-- 1. EXECUTIVE SUMMARY -->
+        <h2>1. Executive Summary</h2>
+        <p>TechToons is an interactive, browser-based coloring book that introduces children (ages 4–10) to technology
+            concepts through creative play. Children color tech-themed illustrations — robots, circuit boards, AI
+            brains, rockets, drones, and VR headsets — using intuitive digital tools, building familiarity with STEM
+            imagery while exercising creativity.</p>
+        <p><strong>Business Goal:</strong> Transform the existing prototype into a commercially viable EdTech product
+            that generates recurring revenue through a freemium subscription model, while establishing TechToons as a
+            trusted brand at the intersection of children's creativity and early tech literacy.</p>
+
+        <hr>
+
+        <!-- 2. PROBLEM STATEMENT -->
+        <h2>2. Problem Statement</h2>
+        <h3>The Gap</h3>
+        <p>Parents and educators seek engaging, screen-based activities that are both creative and educational. The
+            existing market for children's digital coloring apps is fragmented:</p>
+        <table>
+            <tr>
+                <th>Pain Point</th>
+                <th>Current State</th>
+                <th>TechToons Opportunity</th>
+            </tr>
+            <tr>
+                <td><strong>Screen guilt</strong></td>
+                <td>Most kids' apps are passive consumption</td>
+                <td>Active creation builds comfort</td>
+            </tr>
+            <tr>
+                <td><strong>STEM exposure gap</strong></td>
+                <td>STEM learning starts too late (age 10+)</td>
+                <td>Introduces concepts at age 4–10</td>
+            </tr>
+            <tr>
+                <td><strong>Generic content</strong></td>
+                <td>Most coloring apps use animals/princesses</td>
+                <td>Tech-themed illustrations are unique</td>
+            </tr>
+            <tr>
+                <td><strong>No learning link</strong></td>
+                <td>Coloring apps rarely educate</td>
+                <td>Each page includes educational context</td>
+            </tr>
+            <tr>
+                <td><strong>No progress tracking</strong></td>
+                <td>Parents can't see engagement data</td>
+                <td>Dashboard shows time, pages, and skills</td>
+            </tr>
+        </table>
+
+        <h3>Target Users</h3>
+        <table>
+            <tr>
+                <th>Persona</th>
+                <th>Description</th>
+                <th>Needs</th>
+            </tr>
+            <tr>
+                <td><strong>Kids (4–10)</strong></td>
+                <td>Primary users who color</td>
+                <td>Fun, intuitive, rewarding experience</td>
+            </tr>
+            <tr>
+                <td><strong>Parents</strong></td>
+                <td>Decision-makers who pay</td>
+                <td>Safe, educational, ad-free, progress visibility</td>
+            </tr>
+            <tr>
+                <td><strong>Educators</strong></td>
+                <td>Classroom adoption</td>
+                <td>Curriculum-aligned activities, class management</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 3. VISION & METRICS -->
+        <h2>3. Product Vision &amp; Success Metrics</h2>
+        <blockquote>"Make every child's first interaction with technology a creative one."</blockquote>
+
+        <h3>Key Results (12-month targets)</h3>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Target</th>
+                <th>Measurement</th>
+            </tr>
+            <tr>
+                <td>Monthly Active Users (MAU)</td>
+                <td>50,000</td>
+                <td>Analytics</td>
+            </tr>
+            <tr>
+                <td>Free → Paid Conversion</td>
+                <td>5%</td>
+                <td>Subscription data</td>
+            </tr>
+            <tr>
+                <td>Monthly Recurring Revenue (MRR)</td>
+                <td>$12,500</td>
+                <td>Stripe dashboard</td>
+            </tr>
+            <tr>
+                <td>Average Session Duration</td>
+                <td>8+ minutes</td>
+                <td>Analytics</td>
+            </tr>
+            <tr>
+                <td>App Store Rating</td>
+                <td>4.5+ stars</td>
+                <td>Store reviews</td>
+            </tr>
+            <tr>
+                <td>Educator Accounts</td>
+                <td>500</td>
+                <td>Admin dashboard</td>
+            </tr>
+            <tr>
+                <td>Pages Colored (total)</td>
+                <td>1,000,000</td>
+                <td>Event tracking</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 4. CURRENT CAPABILITIES -->
+        <h2>4. Current Product Capabilities (v0.2 — Enhanced Prototype)</h2>
+        <p>The current build demonstrates core viability plus kid-friendly UX:</p>
+
+        <h3>Core Features</h3>
+        <ul>
+            <li><span class="check">✅</span> 6 tech-themed SVG coloring pages (Robot, Circuit Board, AI Brain, Rocket,
+                Drone, VR Headset)</li>
+            <li><span class="check">✅</span> Click-to-fill region painting with inline SVGs</li>
+            <li><span class="check">✅</span> 16-color curated palette + full-spectrum custom picker</li>
+            <li><span class="check">✅</span> 3 brush tools: Paint Bucket, Eraser, Rainbow</li>
+            <li><span class="check">✅</span> 20-level undo stack + full reset</li>
+            <li><span class="check">✅</span> Export to PNG (2× resolution)</li>
+            <li><span class="check">✅</span> Responsive layout (desktop + mobile)</li>
+            <li><span class="check">✅</span> Clean design system (Fredoka + Nunito, teal/coral palette, 8px grid)</li>
+            <li><span class="check">✅</span> Deployed on Vercel</li>
+        </ul>
+
+        <h3>Kid-Friendly UX <span class="new-tag">NEW in v0.2</span></h3>
+        <ul>
+            <li><span class="check">✅</span> <strong>Labeled Toolbar</strong> — Visible text labels on every control
+                ("Paint", "Erase", "Rainbow", "Undo", "Start Over", "Save") with section headings ("Colors", "Tools",
+                "Actions")</li>
+            <li><span class="check">✅</span> <strong>Live Region Label Indicator</strong> — Dynamic indicator ("🎨
+                You're coloring: Head") updates on hover/click so kids know what they're painting</li>
+            <li><span class="check">✅</span> <strong>Region Label Maps</strong> — 100+ human-readable names across all 6
+                pages (e.g., "Antenna Ball", "Processor (CPU)", "Camera Lens")</li>
+            <li><span class="check">✅</span> <strong>Educational Descriptions</strong> — Age-appropriate descriptions on
+                each page (e.g., "A robot has a head, arms, and legs — just like you!")</li>
+            <li><span class="check">✅</span> <strong>Gallery Descriptions</strong> — Home page cards show educational
+                blurbs before kids click</li>
+            <li><span class="check">✅</span> <strong>Guided Onboarding Prompt</strong> — Default "👆 Tap a part to start
+                coloring!" guides new users</li>
+        </ul>
+
+        <h3>Tech Stack</h3>
+        <ul>
+            <li>React 19 + TypeScript</li>
+            <li>Vite 7 (dev server &amp; bundler)</li>
+            <li>react-colorful (color picker)</li>
+            <li>react-router-dom v7 (client-side routing)</li>
+        </ul>
+
+        <hr>
+
+        <!-- 5. FEATURE REQUIREMENTS -->
+        <h2>5. Feature Requirements</h2>
+
+        <h3>5.1 Phase 1 — Foundation (Months 1–3)</h3>
+        <p><em>Goal: Transform prototype into a launchable product</em></p>
+
+        <div class="feature-card">
+            <h4>FR-1: User Accounts &amp; Authentication <span class="priority-tag p0">P0</span></h4>
+            <p>Parents create accounts; children have sub-profiles under a parent account.</p>
+            <ul>
+                <li>Email/password + Google/Apple OAuth sign-up</li>
+                <li>Up to 4 child profiles per parent account</li>
+                <li>Each child profile has name, avatar, age</li>
+                <li>COPPA-compliant data collection (parental consent flow)</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-2: Cloud Save &amp; Progress Persistence <span class="priority-tag p0">P0</span></h4>
+            <p>Coloring progress is automatically saved and synced across devices.</p>
+            <ul>
+                <li>Auto-save every 30 seconds + on page leave</li>
+                <li>Region color state stored per user per page</li>
+                <li>Gallery of completed works per child profile</li>
+                <li>Offline support with sync-on-reconnect</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-3: Expanded Content Library <span class="priority-tag p0">P0</span></h4>
+            <p>Grow from 6 pages to 20+ across themed collections.</p>
+            <ul>
+                <li>New collections: Coding Creatures, Internet World, Gaming Galaxy, Green Tech</li>
+                <li>5 pages per collection (20+ total at launch)</li>
+                <li>Difficulty levels: Easy, Medium, Challenging</li>
+                <li>3 free pages + rest behind paywall</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-4: Freemium Subscription Model <span class="priority-tag p0">P0</span></h4>
+            <p>Monetize through tiered subscription plans.</p>
+            <ul>
+                <li><strong>Free Tier:</strong> 3 coloring pages, basic tools, no save/export</li>
+                <li><strong>TechToons Plus ($4.99/mo):</strong> All pages, all tools, cloud save, PNG export</li>
+                <li><strong>TechToons Classroom ($9.99/mo):</strong> Plus features + class management, up to 30 students
+                </li>
+                <li>7-day free trial for Plus; annual discount (2 months free)</li>
+            </ul>
+        </div>
+
+        <h3>5.2 Phase 2 — Engagement &amp; Learning (Months 4–6)</h3>
+        <p><em>Goal: Increase retention and add educational value</em></p>
+
+        <div class="feature-card">
+            <h4>FR-5: Learning Sidebars ("Did You Know?") <span class="priority-tag p1">P1</span></h4>
+            <p>Each coloring page includes age-appropriate tech facts and mini-lessons.</p>
+            <ul>
+                <li>Collapsible sidebar with 3–5 facts per page</li>
+                <li>Read-aloud audio for younger children</li>
+                <li>"Quiz Me" button with simple multiple-choice</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-6: Achievements &amp; Rewards System <span class="priority-tag p1">P1</span></h4>
+            <p>Gamified reward system to encourage exploration and completion.</p>
+            <ul>
+                <li>Badges: "First Robot!", "Color Explorer" (5 pages), "Tech Master" (all pages)</li>
+                <li>Streak tracking (consecutive days)</li>
+                <li>Virtual sticker rewards; celebratory animations</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-7: Parent Dashboard <span class="priority-tag p1">P1</span></h4>
+            <p>Parents can monitor child engagement and learning progress.</p>
+            <ul>
+                <li>Time spent per session and per page</li>
+                <li>Pages completed and collections progress</li>
+                <li>Weekly email summary (opt-in); screen time limits</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-8: Sharing &amp; Social Gallery <span class="priority-tag p2">P2</span></h4>
+            <p>Kids can share completed artwork in a moderated community gallery.</p>
+            <ul>
+                <li>"Share to Gallery" button; moderated before publishing</li>
+                <li>Kids can "star" artwork (no comments for safety)</li>
+                <li>Share link to family via email/message</li>
+            </ul>
+        </div>
+
+        <h3>5.3 Phase 3 — Scale &amp; Platform (Months 7–12)</h3>
+        <p><em>Goal: Expand platform reach and revenue channels</em></p>
+
+        <div class="feature-card">
+            <h4>FR-9: Mobile Apps (iOS &amp; Android) <span class="priority-tag p1">P1</span></h4>
+            <p>Native mobile apps with touch-optimized controls, offline mode, and push notifications.</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-10: Educator / Classroom Tools <span class="priority-tag p1">P1</span></h4>
+            <p>Class creation with join codes, page assignments, and progress reports aligned with NGSS.</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-11: Printable Worksheets <span class="priority-tag p2">P2</span></h4>
+            <p>Export SVG pages as black-and-white PDFs with fun facts. A4 and Letter size options.</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-12: API &amp; Partner Integrations <span class="priority-tag p2">P2</span></h4>
+            <p>Embeddable widget for partner sites with API key auth and revenue share tracking.</p>
+        </div>
+
+        <hr>
+
+        <!-- 6. NON-FUNCTIONAL -->
+        <h2>6. Non-Functional Requirements</h2>
+        <table>
+            <tr>
+                <th>Requirement</th>
+                <th>Specification</th>
+            </tr>
+            <tr>
+                <td><strong>Performance</strong></td>
+                <td>First Contentful Paint &lt; 1.5s; SVG interaction &lt; 50ms</td>
+            </tr>
+            <tr>
+                <td><strong>Accessibility</strong></td>
+                <td>WCAG 2.1 AA; keyboard navigation; screen reader support</td>
+            </tr>
+            <tr>
+                <td><strong>Security</strong></td>
+                <td>COPPA compliance; encrypted data at rest/in transit; SOC 2 Type II (Month 12)</td>
+            </tr>
+            <tr>
+                <td><strong>Privacy</strong></td>
+                <td>No third-party tracking for child accounts; GDPR deletion on request</td>
+            </tr>
+            <tr>
+                <td><strong>Scalability</strong></td>
+                <td>100K concurrent users; CDN-served static assets</td>
+            </tr>
+            <tr>
+                <td><strong>Browser Support</strong></td>
+                <td>Chrome 90+, Safari 15+, Firefox 100+, Edge 90+</td>
+            </tr>
+            <tr>
+                <td><strong>Uptime</strong></td>
+                <td>99.9% availability SLA</td>
+            </tr>
+            <tr>
+                <td><strong>i18n</strong></td>
+                <td>Framework in place; launch EN, ES, FR</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 7. ARCHITECTURE -->
+        <h2>7. Technical Architecture (Proposed)</h2>
+        <div class="arch">┌────────────────────────────────────────────────────┐
+            │ Client (Web/Mobile) │
+            │ React 19 + TypeScript + Vite │
+            │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
+            │ │ Coloring │ │ Auth │ │ Parent Dashboard │ │
+            │ │ Engine │ │ Flows │ │ + Analytics │ │
+            │ └──────────┘ └──────────┘ └──────────────────┘ │
+            └──────────────────┬─────────────────────────────────┘
+            │ HTTPS / REST + WebSocket
+            ┌──────────────────▼─────────────────────────────────┐
+            │ API Layer │
+            │ Node.js + Express (or Next.js API Routes) │
+            │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
+            │ │ Auth │ │ Content │ │ Subscription │ │
+            │ │ Service │ │ Service │ │ Service (Stripe) │ │
+            │ └──────────┘ └──────────┘ └──────────────────┘ │
+            └──────────────────┬─────────────────────────────────┘
+            │
+            ┌──────────────────▼─────────────────────────────────┐
+            │ Data Layer │
+            │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
+            │ │PostgreSQL│ │ Redis │ │ S3 / Cloudflare │ │
+            │ │(Users, │ │(Cache, │ │ R2 (Exported │ │
+            │ │ Progress)│ │ Sessions)│ │ Artwork) │ │
+            │ └──────────┘ └──────────┘ └──────────────────┘ │
+            └────────────────────────────────────────────────────┘</div>
+
+        <hr>
+
+        <!-- 8. MONETIZATION -->
+        <h2>8. Monetization Strategy</h2>
+        <table>
+            <tr>
+                <th>Stream</th>
+                <th>Model</th>
+                <th>Projected Year 1</th>
+            </tr>
+            <tr>
+                <td><strong>TechToons Plus</strong></td>
+                <td>$4.99/mo per family</td>
+                <td>$120,000</td>
+            </tr>
+            <tr>
+                <td><strong>TechToons Classroom</strong></td>
+                <td>$9.99/mo per educator</td>
+                <td>$60,000</td>
+            </tr>
+            <tr>
+                <td><strong>Printable Worksheets</strong></td>
+                <td>Included in Plus</td>
+                <td>— (retention driver)</td>
+            </tr>
+            <tr>
+                <td><strong>Partner Embeds</strong></td>
+                <td>Rev-share per active user</td>
+                <td>$15,000</td>
+            </tr>
+            <tr>
+                <td><strong>Branded Content Packs</strong></td>
+                <td>Sponsored collections (NASA, Google)</td>
+                <td>$30,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><strong>Projected Total</strong></td>
+                <td><strong>$225,000</strong></td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 9. COMPETITIVE ANALYSIS -->
+        <h2>9. Competitive Analysis</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>TechToons</th>
+                <th>Toca Boca</th>
+                <th>Sago Mini</th>
+                <th>ABCmouse</th>
+            </tr>
+            <tr>
+                <td><strong>Tech/STEM Theme</strong></td>
+                <td><span class="check">✅ Unique</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td>Partial</td>
+            </tr>
+            <tr>
+                <td><strong>Coloring + Learning</strong></td>
+                <td><span class="check">✅</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="check">✅</span></td>
+            </tr>
+            <tr>
+                <td><strong>Web-Based</strong></td>
+                <td><span class="check">✅</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="check">✅</span></td>
+            </tr>
+            <tr>
+                <td><strong>Classroom Tools</strong></td>
+                <td><span class="check">✅</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="check">✅</span></td>
+            </tr>
+            <tr>
+                <td><strong>Price</strong></td>
+                <td>$4.99/mo</td>
+                <td>$4.99/mo</td>
+                <td>$3.99/mo</td>
+                <td>$12.99/mo</td>
+            </tr>
+            <tr>
+                <td><strong>Target Age</strong></td>
+                <td>4–10</td>
+                <td>3–9</td>
+                <td>2–5</td>
+                <td>2–8</td>
+            </tr>
+            <tr>
+                <td><strong>Export Artwork</strong></td>
+                <td><span class="check">✅</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+            </tr>
+        </table>
+        <p><strong>Competitive Moat:</strong> TechToons is the only product combining creative coloring with
+            tech-specific STEM learning for kids 4–10, accessible on the web without installation.</p>
+
+        <hr>
+
+        <!-- 10. GTM -->
+        <h2>10. Go-To-Market Strategy</h2>
+        <table>
+            <tr>
+                <th>Phase</th>
+                <th>Timeline</th>
+                <th>Activities</th>
+            </tr>
+            <tr>
+                <td><strong>Soft Launch</strong></td>
+                <td>Month 3</td>
+                <td>Launch web app with free tier; onboard 20 beta parents</td>
+            </tr>
+            <tr>
+                <td><strong>Content Marketing</strong></td>
+                <td>Month 3–4</td>
+                <td>Blog: "Why STEM Starts with Crayons"; social media</td>
+            </tr>
+            <tr>
+                <td><strong>Product Hunt</strong></td>
+                <td>Month 4</td>
+                <td>Product Hunt + Hacker News debut</td>
+            </tr>
+            <tr>
+                <td><strong>Education Outreach</strong></td>
+                <td>Month 5–6</td>
+                <td>Partner with 10 schools; submit to Common Sense Media</td>
+            </tr>
+            <tr>
+                <td><strong>Mobile Launch</strong></td>
+                <td>Month 8</td>
+                <td>iOS + Android app store submissions</td>
+            </tr>
+            <tr>
+                <td><strong>Scale</strong></td>
+                <td>Month 9–12</td>
+                <td>Paid acquisition; YouTube Kids ads</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 11. USER STORIES -->
+        <h2>11. User Stories</h2>
+        <h3>Parent Stories</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Story</th>
+                <th>Priority</th>
+            </tr>
+            <tr>
+                <td>US-1</td>
+                <td>As a parent, I want to create an account so my child's progress is saved</td>
+                <td><span class="priority-tag p0">P0</span></td>
+            </tr>
+            <tr>
+                <td>US-2</td>
+                <td>As a parent, I want to set up child profiles so each kid has their own space</td>
+                <td><span class="priority-tag p0">P0</span></td>
+            </tr>
+            <tr>
+                <td>US-3</td>
+                <td>As a parent, I want to view a dashboard so I can see what my child has been doing</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-4</td>
+                <td>As a parent, I want to subscribe to unlock all content for my family</td>
+                <td><span class="priority-tag p0">P0</span></td>
+            </tr>
+            <tr>
+                <td>US-5</td>
+                <td>As a parent, I want to set screen time limits</td>
+                <td><span class="priority-tag p2">P2</span></td>
+            </tr>
+        </table>
+
+        <h3>Child Stories</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Story</th>
+                <th>Priority</th>
+            </tr>
+            <tr>
+                <td>US-6</td>
+                <td>As a child, I want to pick a coloring page from a gallery</td>
+                <td><span class="priority-tag p0">P0</span></td>
+            </tr>
+            <tr>
+                <td>US-7</td>
+                <td>As a child, I want to tap regions to fill them with color</td>
+                <td><span class="priority-tag p0">P0</span></td>
+            </tr>
+            <tr>
+                <td>US-8</td>
+                <td>As a child, I want to earn badges when I finish pages</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-9</td>
+                <td>As a child, I want to read fun facts about the tech I'm coloring</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-10</td>
+                <td>As a child, I want to share my artwork with family</td>
+                <td><span class="priority-tag p2">P2</span></td>
+            </tr>
+        </table>
+
+        <h3>Educator Stories</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Story</th>
+                <th>Priority</th>
+            </tr>
+            <tr>
+                <td>US-11</td>
+                <td>As a teacher, I want to create a class so my students can use TechToons together</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-12</td>
+                <td>As a teacher, I want to assign specific pages to align with lesson plans</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-13</td>
+                <td>As a teacher, I want to view class progress</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-14</td>
+                <td>As a teacher, I want to print worksheets for device-free sessions</td>
+                <td><span class="priority-tag p2">P2</span></td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 12. RISKS -->
+        <h2>12. Risks &amp; Mitigations</h2>
+        <table>
+            <tr>
+                <th>Risk</th>
+                <th>Likelihood</th>
+                <th>Impact</th>
+                <th>Mitigation</th>
+            </tr>
+            <tr>
+                <td><strong>COPPA compliance failure</strong></td>
+                <td>Medium</td>
+                <td>Critical</td>
+                <td>Specialized legal counsel; COPPA-certified vendor</td>
+            </tr>
+            <tr>
+                <td><strong>Low conversion rate</strong></td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Strong free tier; A/B test paywall</td>
+            </tr>
+            <tr>
+                <td><strong>Content creation bottleneck</strong></td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>SVG illustration pipeline; freelance illustrators</td>
+            </tr>
+            <tr>
+                <td><strong>App Store rejection</strong></td>
+                <td>Low</td>
+                <td>High</td>
+                <td>Follow Kids category guidelines from day 1</td>
+            </tr>
+            <tr>
+                <td><strong>Competitor copies STEM angle</strong></td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>First-mover advantage; brand loyalty</td>
+            </tr>
+            <tr>
+                <td><strong>Teacher adoption is slow</strong></td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>Free Classroom tier for first 100 schools</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 13. ROADMAP -->
+        <h2>13. Roadmap Summary</h2>
+        <div class="roadmap">Month 1–3 ▓▓▓▓▓▓▓░░░░░ Phase 1: Foundation
+            ├─ User accounts &amp; auth
+            ├─ Cloud save
+            ├─ Expand to 20+ pages
+            └─ Freemium + Stripe
+
+            Month 4–6 ░░░░▓▓▓▓▓░░░ Phase 2: Engagement
+            ├─ Learning sidebars
+            ├─ Achievements &amp; badges
+            ├─ Parent dashboard
+            └─ Community gallery
+
+            Month 7–12 ░░░░░░░▓▓▓▓▓ Phase 3: Scale
+            ├─ iOS &amp; Android apps
+            ├─ Classroom tools
+            ├─ Printable worksheets
+            └─ Partner API</div>
+
+        <hr>
+
+        <!-- 14. APPENDIX -->
+        <h2>14. Appendix</h2>
+        <h3>A. Glossary</h3>
+        <table>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+            </tr>
+            <tr>
+                <td><strong>Region</strong></td>
+                <td>An individual SVG path element that can be filled with color</td>
+            </tr>
+            <tr>
+                <td><strong>Collection</strong></td>
+                <td>A themed group of 5 coloring pages</td>
+            </tr>
+            <tr>
+                <td><strong>Streak</strong></td>
+                <td>Consecutive days a child uses the app</td>
+            </tr>
+            <tr>
+                <td><strong>COPPA</strong></td>
+                <td>Children's Online Privacy Protection Act (U.S. federal law)</td>
+            </tr>
+        </table>
+
+        <h3>B. Open Questions</h3>
+        <ol>
+            <li>Should we support real-time collaborative coloring?</li>
+            <li>What age verification method is sufficient for COPPA compliance?</li>
+            <li>Should we pursue Apple's Kids category or standard listing?</li>
+            <li>Freemium model or one-time purchase for mobile?</li>
+        </ol>
+
+        <hr>
+        <p style="text-align: center; color: var(--color-text-secondary); font-size: 12px; margin-top: 32px;"><em>This
+                document is a living artifact. Updated as business requirements evolve.</em></p>
+        <p style="text-align: center; color: var(--color-text-secondary); font-size: 11px;">© 2026 TechToons.
+            Confidential.</p>
+
+    </div>
+</body>
+
+</html>

@@ -1,10 +1,10 @@
 # TechToons — Product Requirements Document (PRD)
 
 **Product Name:** TechToons  
-**Version:** 1.0  
+**Version:** 1.1  
 **Date:** March 2, 2026  
 **Author:** Product Team  
-**Status:** Draft  
+**Status:** Updated — reflects v0.2 implementation  
 
 ---
 
@@ -58,10 +58,11 @@ Parents and educators seek engaging, screen-based activities that are both creat
 
 ---
 
-## 4. Current Product Capabilities (v0.1 — Prototype)
+## 4. Current Product Capabilities (v0.2 — Enhanced Prototype)
 
-The current prototype demonstrates core viability:
+The current build demonstrates core viability plus kid-friendly UX:
 
+### Core Features
 - ✅ 6 tech-themed SVG coloring pages (Robot, Circuit Board, AI Brain, Rocket, Drone, VR Headset)
 - ✅ Click-to-fill region painting with inline SVGs
 - ✅ 16-color curated palette + full-spectrum custom picker
@@ -71,6 +72,14 @@ The current prototype demonstrates core viability:
 - ✅ Responsive layout (desktop + mobile)
 - ✅ Clean design system (Fredoka + Nunito, teal/coral palette, 8px grid)
 - ✅ Deployed on Vercel
+
+### Kid-Friendly UX (NEW in v0.2)
+- ✅ **Labeled Toolbar** — Visible text labels on every toolbar control ("Paint", "Erase", "Rainbow", "Undo", "Start Over", "Save") with section headings ("Colors", "Tools", "Actions")
+- ✅ **Live Region Label Indicator** — Dynamic indicator above the canvas ("🎨 You're coloring: Head") that updates on hover/click, so kids know exactly what part they're coloring
+- ✅ **Region Label Maps** — 100+ human-readable region names across all 6 pages (e.g., "Antenna Ball", "Processor (CPU)", "Left Thinking Area", "Nose Cone", "Camera Lens", "Left Controller")
+- ✅ **Educational Descriptions** — Each coloring page shows an age-appropriate description explaining the tech concept (e.g., "A robot has a head, arms, and legs — just like you! Can you color each part?")
+- ✅ **Gallery Descriptions** — Home page cards show educational blurbs so kids understand what they'll learn before clicking
+- ✅ **Guided Onboarding Prompt** — Default state shows "👆 Tap a part to start coloring!" to guide new users
 
 ### Tech Stack
 - React 19 + TypeScript
