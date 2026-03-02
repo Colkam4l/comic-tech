@@ -345,37 +345,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 
 ---
 
-## 11. User Stories
-
-### Parent User Stories
-| ID | Story | Priority |
-|---|---|---|
-| US-1 | As a parent, I want to create an account so my child's progress is saved | P0 |
-| US-2 | As a parent, I want to set up child profiles so each kid has their own space | P0 |
-| US-3 | As a parent, I want to view a dashboard so I can see what my child has been doing | P1 |
-| US-4 | As a parent, I want to subscribe to unlock all content for my family | P0 |
-| US-5 | As a parent, I want to set screen time limits so my child doesn't overuse the app | P2 |
-
-### Child User Stories
-| ID | Story | Priority |
-|---|---|---|
-| US-6 | As a child, I want to pick a coloring page from a gallery so I can choose what to color | P0 |
-| US-7 | As a child, I want to tap regions to fill them with color so I can create art | P0 |
-| US-8 | As a child, I want to earn badges when I finish pages so I feel accomplished | P1 |
-| US-9 | As a child, I want to read fun facts about the tech I'm coloring so I can learn | P1 |
-| US-10 | As a child, I want to share my artwork with family so they can see what I made | P2 |
-
-### Educator User Stories
-| ID | Story | Priority |
-|---|---|---|
-| US-11 | As a teacher, I want to create a class so my students can use TechToons together | P1 |
-| US-12 | As a teacher, I want to assign specific pages so coloring aligns with my lesson plan | P1 |
-| US-13 | As a teacher, I want to view class progress so I can track student engagement | P1 |
-| US-14 | As a teacher, I want to print worksheets so students without devices can participate | P2 |
-
----
-
-## 12. Risks & Mitigations
+## 11. Risks & Mitigations
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
@@ -389,7 +359,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 
 ---
 
-## 13. Roadmap Summary
+## 12. Roadmap Summary
 
 ```
 Month 1–3  ▓▓▓▓▓▓▓░░░░░  Phase 1: Foundation
@@ -415,7 +385,7 @@ Month 7–12 ░░░░░░░▓▓▓▓▓  Phase 3: Scale
 
 ---
 
-## 14. Appendix
+## 13. Appendix
 
 ### A. Glossary
 | Term | Definition |

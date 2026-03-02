@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechToons — User Personas (Kenya)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --color-primary: #0d9488;
+            --color-primary-light: #14b8a6;
+            --color-bg: #f8fafc;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-text-secondary: #64748b;
+            --color-border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--color-card);
+            padding: 48px 56px;
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .doc-header {
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .doc-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .doc-header p {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .market-badge {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-weight: 600;
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 32px 0;
+        }
+
+        .persona-card {
+            background: #fafbfc;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin: 24px 0;
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .persona-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .persona-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 24px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            color: var(--color-text-secondary);
+        }
+
+        .persona-meta strong {
+            color: var(--color-text);
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin: 16px 0 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        ul {
+            margin: 6px 0 12px 20px;
+            font-size: 14px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .check {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--color-primary);
+            padding: 8px 16px;
+            margin: 12px 0;
+            background: #f0fdfa;
+            font-style: italic;
+            color: var(--color-primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                box-shadow: none;
+                padding: 24px 32px;
+            }
+
+            .persona-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="doc-header">
+            <h1>TechToons — User Personas</h1>
+            <p><strong>Market:</strong> <span class="market-badge">🇰🇪 Kenya (East Africa)</span> &nbsp;
+                <strong>Date:</strong> February 23, 2026 &nbsp; <strong>Version:</strong> 1.1</p>
+        </div>
+
+        <!-- PERSONA 1 -->
+        <div class="persona-card">
+            <h2>👩‍💻 Grace — The Nairobi Tech-Industry Parent</h2>
+            <div class="persona-meta">
+                <div><strong>Age:</strong> 32</div>
+                <div><strong>Role:</strong> Software Developer at a Nairobi tech startup</div>
+                <div><strong>Children:</strong> Amani (6) and Jabari (8)</div>
+                <div><strong>Location:</strong> Kilimani, Nairobi</div>
+                <div><strong>Device:</strong> Samsung Galaxy S24, work laptop, shared family tablet</div>
+            </div>
+            <h3>Goals</h3>
+            <ul>
+                <li>Find screen-time activities that are <em>actually</em> educational</li>
+                <li>Expose her kids to technology concepts early — especially with CBC's Digital Literacy strand</li>
+                <li>Track what her kids are doing on their devices</li>
+            </ul>
+            <h3>Frustrations</h3>
+            <ul>
+                <li>Most "educational" apps are built for Western audiences and priced in USD</li>
+                <li>Feels guilty about screen time; wants to justify it</li>
+                <li>Tired of apps that bombard kids with ads or don't accept M-Pesa</li>
+            </ul>
+            <h3>How TechToons Helps</h3>
+            <ul>
+                <li><span class="check">✅</span> Coloring is active creation, not passive watching</li>
+                <li><span class="check">✅</span> "Did You Know?" facts teach real tech concepts aligned with CBC</li>
+                <li><span class="check">✅</span> Parent dashboard shows time spent and learning progress</li>
+                <li><span class="check">✅</span> Ad-free, DPA 2019-compliant — no guilt</li>
+                <li><span class="check">✅</span> KES 250/mo is affordable; pays via M-Pesa</li>
+            </ul>
+            <blockquote>"I want my kids to see technology as something they create, not just consume."</blockquote>
+        </div>
+
+        <!-- PERSONA 2 -->
+        <div class="persona-card">
+            <h2>👧 Wanjiku — The Curious 7-Year-Old</h2>
+            <div class="persona-meta">
+                <div><strong>Age:</strong> 7</div>
+                <div><strong>Grade:</strong> Grade 2 (CBC)</div>
+                <div><strong>Interests:</strong> Cartoons, space documentaries, drawing, Mum's phone</div>
+                <div><strong>Device:</strong> Shared family Android tablet</div>
+            </div>
+            <h3>Goals</h3>
+            <ul>
+                <li>Have fun and be creative</li>
+                <li>Show off her artwork to Mum, Dad, and Shosh (grandmother)</li>
+                <li>Earn rewards and feel accomplished</li>
+            </ul>
+            <h3>Frustrations</h3>
+            <ul>
+                <li>Gets bored with apps quickly</li>
+                <li>Doesn't like apps that are too hard or too "school-like"</li>
+                <li>Wants to pick her own colors and do things her way</li>
+            </ul>
+            <h3>How TechToons Helps</h3>
+            <ul>
+                <li><span class="check">✅</span> Cool tech illustrations (robots! rockets!) that spark curiosity</li>
+                <li><span class="check">✅</span> Easy tap-to-color mechanic — works great on a phone screen too</li>
+                <li><span class="check">✅</span> Badges and stickers keep her coming back</li>
+                <li><span class="check">✅</span> Export lets her share art on WhatsApp with family</li>
+            </ul>
+            <blockquote>"I colored a ROBOT and Mum sent it to Shosh on WhatsApp!"</blockquote>
+        </div>
+
+        <!-- PERSONA 3 -->
+        <div class="persona-card">
+            <h2>👨‍🏫 Mr. Ochieng — The CBC Digital Literacy Teacher</h2>
+            <div class="persona-meta">
+                <div><strong>Age:</strong> 35</div>
+                <div><strong>Role:</strong> Grade 3 teacher (Digital Literacy &amp; Creative Arts)</div>
+                <div><strong>School:</strong> Moi Primary School, Kisumu County</div>
+                <div><strong>Class Size:</strong> 40 students</div>
+                <div><strong>Device:</strong> School Chromebooks (shared, 3:1 ratio); personal Tecno phone</div>
+            </div>
+            <h3>Goals</h3>
+            <ul>
+                <li>Find engaging Digital Literacy activities that work on shared Chromebooks</li>
+                <li>Align activities with Kenya's CBC framework (Digital Literacy strand)</li>
+                <li>Track student engagement without extra marking work</li>
+            </ul>
+            <h3>Frustrations</h3>
+            <ul>
+                <li>Most EdTech tools are priced for Western schools and require installation</li>
+                <li>Pupils are restless during theory lessons; needs hands-on activities</li>
+                <li>Limited devices — needs something that works when 3 students share one Chromebook</li>
+            </ul>
+            <h3>How TechToons Helps</h3>
+            <ul>
+                <li><span class="check">✅</span> Web-based — works instantly on Chromebooks, no install or download</li>
+                <li><span class="check">✅</span> "Assign a page" feature ties coloring to Digital Literacy lesson plans
+                </li>
+                <li><span class="check">✅</span> Class dashboard shows who completed what — no marking needed</li>
+                <li><span class="check">✅</span> Printable worksheets for device-free sessions</li>
+                <li><span class="check">✅</span> KES 500/mo can be funded from per-learner capitation grants</li>
+            </ul>
+            <blockquote>"They don't even realize they're learning because they're having so much fun coloring."
+            </blockquote>
+        </div>
+
+        <!-- PERSONA 4 -->
+        <div class="persona-card">
+            <h2>🏠 Aisha — The Mombasa Homeschool Parent</h2>
+            <div class="persona-meta">
+                <div><strong>Age:</strong> 36</div>
+                <div><strong>Role:</strong> Homeschool parent, part-time Swahili tutor</div>
+                <div><strong>Children:</strong> Fatima (5) and Hassan (9)</div>
+                <div><strong>Location:</strong> Nyali, Mombasa</div>
+                <div><strong>Device:</strong> Infinix Note phone, desktop PC at home</div>
+            </div>
+            <h3>Goals</h3>
+            <ul>
+                <li>Find CBC-supplementary activities for different age levels</li>
+                <li>Keep both kids engaged at the same time (different abilities)</li>
+                <li>Document learning progress for homeschool records submitted to Sub-County Education Office</li>
+            </ul>
+            <h3>Frustrations</h3>
+            <ul>
+                <li>Hard to find single tools that work for both a 5-year-old and a 9-year-old</li>
+                <li>Many apps don't provide progress reports needed for homeschool portfolio</li>
+                <li>Free apps are full of ads; paid apps priced in USD are too expensive</li>
+            </ul>
+            <h3>How TechToons Helps</h3>
+            <ul>
+                <li><span class="check">✅</span> Difficulty levels (Easy → Challenging) work for both Fatima and Hassan
+                </li>
+                <li><span class="check">✅</span> Individual child profiles track separate progress</li>
+                <li><span class="check">✅</span> Parent dashboard provides exportable reports for homeschool portfolio
+                </li>
+                <li><span class="check">✅</span> One KES 250/mo subscription covers the whole family (up to 4 profiles)
+                </li>
+                <li><span class="check">✅</span> Works on Infinix phone — no expensive device needed</li>
+            </ul>
+            <blockquote>"Finally, one app that works for my kindergartener AND my Grade 4 son — and I can pay with
+                M-Pesa."</blockquote>
+        </div>
+
+        <hr>
+        <p style="text-align:center;color:var(--color-text-secondary);font-size:12px;">© 2026 TechToons. Confidential.
+        </p>
+    </div>
+</body>
+
+</html>
