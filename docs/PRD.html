@@ -619,11 +619,53 @@
             </p>
         </div>
 
+        <div class="feature-card">
+            <h4>FR-9: Brush Boundary Guidance ("Paint Inside the Lines") <span class="priority-tag p1">P1 — Should
+                    Have</span></h4>
+            <p>When using the freehand brush tool, detect if the child draws outside the coloring regions and display a
+                friendly, encouraging nudge.</p>
+            <ul>
+                <li>Real-time boundary detection using canvas hit-testing against SVG region paths</li>
+                <li>Friendly animated messages: "Oops! Try coloring inside the lines 🎯" or "Almost! Stay inside the
+                    shape 😊"</li>
+                <li>Gentle toast notification (non-blocking), auto-dismisses after 3 seconds</li>
+                <li>Haptic feedback on mobile devices when painting outside</li>
+                <li>Optional "Training Mode" with highlighted region borders for younger children</li>
+                <li>Configurable sensitivity (tolerant for ages 4–5, precise for ages 8–10)</li>
+                <li>No penalty — purely guidance, not punishment</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Child paints outside a region boundary → friendly message appears
+                within 500ms; message disappears after 3s; no state loss</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-10: AI Coloring Feedback &amp; Scoring <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <p>AI-powered feedback system that scores completed artwork, provides encouragement, and suggests
+                improvements.</p>
+            <ul>
+                <li><strong>Scoring engine:</strong> Evaluate coloring based on coverage (% of regions filled), neatness
+                    (brush strokes within boundaries), creativity (color variety), and completeness</li>
+                <li><strong>Score display:</strong> Fun, gamified score (e.g., ⭐⭐⭐ out of 5 stars, or "Amazing Artist!"
+                    / "Color Explorer" / "Keep Going!")</li>
+                <li><strong>AI suggestions:</strong> Gentle, age-appropriate correction prompts (e.g., "The rocket's
+                    nose cone is still white — try coloring it!" or "Great use of colors! Try using more than 3
+                    different colors next time")</li>
+                <li><strong>Celebration animations:</strong> Confetti / fireworks on high scores</li>
+                <li><strong>Progress over time:</strong> Track improvement across sessions; show "You're getting
+                    better!" trends in the parent dashboard</li>
+                <li><strong>No negative feedback:</strong> All messaging is positive and encouraging — "almost there!"
+                    instead of "wrong"</li>
+                <li><strong>CBC alignment:</strong> Scores map to CBC competency levels for teacher reports</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Child completes a page → AI score appears with stars and
+                personalized feedback; suggestions are age-appropriate; scores persist in profile</p>
+        </div>
+
         <h3>5.3 Phase 3 — Scale &amp; Platform (Months 7–12)</h3>
         <p><em>Goal: Expand platform reach and revenue channels</em></p>
 
         <div class="feature-card">
-            <h4>FR-9: Mobile Apps (iOS &amp; Android) <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-11: Mobile Apps (iOS &amp; Android) <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Native mobile apps wrapping the web experience with touch-optimized controls.</p>
             <ul>
                 <li>React Native or Capacitor wrapper</li>
@@ -637,7 +679,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-10: Educator / Classroom Tools <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-12: Educator / Classroom Tools <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Tools for teachers to use TechToons in classroom settings.</p>
             <ul>
                 <li>Class creation with join codes</li>
@@ -651,7 +693,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-11: Printable Worksheets <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <h4>FR-13: Printable Worksheets <span class="priority-tag p2">P2 — Nice to Have</span></h4>
             <p>Generate print-ready PDF worksheets from any coloring page.</p>
             <ul>
                 <li>"Print" button exports SVG as black-and-white PDF</li>
@@ -663,7 +705,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-12: API &amp; Partner Integrations <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <h4>FR-14: API &amp; Partner Integrations <span class="priority-tag p2">P2 — Nice to Have</span></h4>
             <p>Open API for embedding TechToons in partner platforms.</p>
             <ul>
                 <li>Embeddable widget (iframe) for partner sites</li>
@@ -1144,6 +1186,8 @@
             ├─ Learning sidebars
             ├─ Achievements &amp; badges
             ├─ Parent dashboard
+            ├─ Brush boundary guidance
+            ├─ AI scoring &amp; feedback
             └─ Community gallery
 
             Month 7–12 ░░░░░░░▓▓▓▓▓ Phase 3: Scale

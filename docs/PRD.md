@@ -169,12 +169,28 @@ The current build demonstrates core viability plus kid-friendly UX:
 | **Requirements** | - "Share to Gallery" button on completed works<br>- Moderated (AI + human review) before publishing<br>- Kids can "star" others' artwork (no comments for safety)<br>- Share link to family via email/message<br>- No personally identifiable info displayed |
 | **Acceptance Criteria** | Artwork appears in gallery after moderation; star counts visible |
 
+#### FR-9: Brush Boundary Guidance ("Paint Inside the Lines")
+| Field | Detail |
+|---|---|
+| **Priority** | P1 — Should Have |
+| **Description** | When using the freehand brush tool, detect if the child draws outside the coloring regions and display a friendly, encouraging nudge |
+| **Requirements** | - Real-time boundary detection using canvas hit-testing against SVG region paths<br>- Friendly animated message: "Oops! Try coloring inside the lines 🎯" or "Almost! Stay inside the shape 😊"<br>- Message appears as a gentle toast notification (not blocking) and auto-dismisses after 3s<br>- Haptic feedback on mobile devices when painting outside<br>- Optional "Training Mode" with highlighted region borders to help younger children<br>- Configurable sensitivity (tolerant for ages 4–5, precise for ages 8–10)<br>- No penalty — purely guidance, not punishment |
+| **Acceptance Criteria** | Child paints outside a region boundary → friendly message appears within 500ms; message disappears after 3s; no state loss |
+
+#### FR-10: AI Coloring Feedback & Scoring
+| Field | Detail |
+|---|---|
+| **Priority** | P1 — Should Have |
+| **Description** | AI-powered feedback system that scores completed artwork, provides encouragement, and suggests improvements |
+| **Requirements** | - **Scoring engine:** Evaluate coloring based on coverage (% of regions filled), neatness (brush strokes within boundaries), creativity (color variety), and completeness<br>- **Score display:** Fun, gamified score (e.g., ⭐⭐⭐ out of 5 stars, or "Amazing Artist!" / "Color Explorer" / "Keep Going!")<br>- **AI suggestions:** Gentle, age-appropriate correction prompts (e.g., "The rocket's nose cone is still white — try coloring it!" or "Great use of colors! Try using more than 3 different colors next time")<br>- **Celebration animations:** Confetti / fireworks on high scores<br>- **Progress over time:** Track improvement across sessions; show "You're getting better!" trends in the parent dashboard<br>- **No negative feedback:** All messaging is positive and encouraging — "almost there!" instead of "wrong"<br>- **CBC alignment:** Scores map to CBC competency levels for teacher reports |
+| **Acceptance Criteria** | Child completes a page → AI score appears with stars and personalized feedback; suggestions are age-appropriate; scores persist in profile |
+
 ---
 
 ### 5.3 Phase 3 — Scale & Platform (Months 7–12)
 *Goal: Expand platform reach and revenue channels*
 
-#### FR-9: Mobile Apps (iOS & Android)
+#### FR-11: Mobile Apps (iOS & Android)
 | Field | Detail |
 |---|---|
 | **Priority** | P1 — Should Have |
@@ -182,7 +198,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 | **Requirements** | - React Native or Capacitor wrapper<br>- Touch gestures: tap-to-fill, pinch-to-zoom, swipe navigation<br>- Offline mode with local storage<br>- Push notifications for streaks and new content<br>- In-app purchases for subscriptions |
 | **Acceptance Criteria** | App published on App Store and Google Play; feature parity with web |
 
-#### FR-10: Educator / Classroom Tools
+#### FR-12: Educator / Classroom Tools
 | Field | Detail |
 |---|---|
 | **Priority** | P1 — Should Have |
@@ -190,7 +206,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 | **Requirements** | - Class creation with join codes<br>- Assign specific pages as "homework"<br>- View class-wide progress and individual reports<br>- Curriculum alignment tags (Kenya CBC — Digital Literacy strand)<br>- Bulk student account creation via CSV |
 | **Acceptance Criteria** | Teacher creates class, assigns page, views class progress report |
 
-#### FR-11: Printable Worksheets
+#### FR-13: Printable Worksheets
 | Field | Detail |
 |---|---|
 | **Priority** | P2 — Nice to Have |
@@ -198,7 +214,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 | **Requirements** | - "Print" button exports SVG as black-and-white PDF<br>- Includes page title and fun facts on the worksheet<br>- A4 and Letter size options<br>- Premium feature (Plus subscribers) |
 | **Acceptance Criteria** | PDF downloads with clean line art and facts |
 
-#### FR-12: API & Partner Integrations
+#### FR-14: API & Partner Integrations
 | Field | Detail |
 |---|---|
 | **Priority** | P2 — Nice to Have |
@@ -386,6 +402,8 @@ Month 4–6  ░░░░▓▓▓▓▓░░░  Phase 2: Engagement
   ├─ Learning sidebars
   ├─ Achievements & badges
   ├─ Parent dashboard
+  ├─ Brush boundary guidance
+  ├─ AI scoring & feedback
   └─ Community gallery
 
 Month 7–12 ░░░░░░░▓▓▓▓▓  Phase 3: Scale
