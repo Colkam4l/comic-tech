@@ -19,36 +19,40 @@ const ColorPalette: React.FC<Props> = ({ activeColor, onColorChange }) => {
 
     return (
         <div className="color-palette">
-            <div className="color-palette__swatches">
-                {SWATCHES.map((color) => (
+            <span className="color-palette__heading">Colors</span>
+            <div className="color-palette__row">
+                <div className="color-palette__swatches">
+                    {SWATCHES.map((color) => (
+                        <button
+                            key={color}
+                            className={`color-palette__swatch ${activeColor === color ? 'color-palette__swatch--active' : ''}`}
+                            style={{ backgroundColor: color }}
+                            onClick={() => onColorChange(color)}
+                            aria-label={`Select color ${color}`}
+                        />
+                    ))}
                     <button
-                        key={color}
-                        className={`color-palette__swatch ${activeColor === color ? 'color-palette__swatch--active' : ''}`}
-                        style={{ backgroundColor: color }}
-                        onClick={() => onColorChange(color)}
-                        aria-label={`Select color ${color}`}
-                    />
-                ))}
-                <button
-                    className="color-palette__custom-btn"
-                    onClick={() => setShowPicker(!showPicker)}
-                    aria-label="Open custom color picker"
-                >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" />
-                        <path d="M4,10 A6,6 0 0,1 10,4" stroke="#EF4444" strokeWidth="2.5" strokeLinecap="round" />
-                        <path d="M10,4 A6,6 0 0,1 16,10" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
-                        <path d="M16,10 A6,6 0 0,1 10,16" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" />
-                        <path d="M10,16 A6,6 0 0,1 4,10" stroke="#EAB308" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                </button>
-            </div>
-            {showPicker && (
-                <div className="color-palette__picker-popover">
-                    <HexColorPicker color={activeColor} onChange={onColorChange} />
+                        className="color-palette__custom-btn"
+                        onClick={() => setShowPicker(!showPicker)}
+                        aria-label="Open custom color picker"
+                        title="More Colors"
+                    >
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.5" />
+                            <path d="M4,10 A6,6 0 0,1 10,4" stroke="#EF4444" strokeWidth="2.5" strokeLinecap="round" />
+                            <path d="M10,4 A6,6 0 0,1 16,10" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
+                            <path d="M16,10 A6,6 0 0,1 10,16" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" />
+                            <path d="M10,16 A6,6 0 0,1 4,10" stroke="#EAB308" strokeWidth="2.5" strokeLinecap="round" />
+                        </svg>
+                    </button>
                 </div>
-            )}
-            <div className="color-palette__preview" style={{ backgroundColor: activeColor }} />
+                {showPicker && (
+                    <div className="color-palette__picker-popover">
+                        <HexColorPicker color={activeColor} onChange={onColorChange} />
+                    </div>
+                )}
+                <div className="color-palette__preview" style={{ backgroundColor: activeColor }} />
+            </div>
         </div>
     );
 };

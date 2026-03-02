@@ -9,12 +9,48 @@ import VrHeadset from '../graphics/VrHeadset';
 import './HomePage.css';
 
 const PAGES = [
-    { id: 1, title: 'Robot Buddy', subtitle: 'Build your own robot pal', Component: RobotBuddy },
-    { id: 2, title: 'Circuit Board', subtitle: 'Electronic pathways', Component: CircuitBoard },
-    { id: 3, title: 'AI Brain', subtitle: 'Neural network patterns', Component: AiBrain },
-    { id: 4, title: 'Space Rocket', subtitle: 'Blast off to the stars', Component: SpaceRocket },
-    { id: 5, title: 'Tech Drone', subtitle: 'Aerial explorer', Component: TechDrone },
-    { id: 6, title: 'VR Headset', subtitle: 'Virtual worlds await', Component: VrHeadset },
+    {
+        id: 1,
+        title: 'Robot Buddy',
+        subtitle: 'Build your own robot pal',
+        description: 'Robots are machines that can move and do tasks — color each part to bring this one to life!',
+        Component: RobotBuddy,
+    },
+    {
+        id: 2,
+        title: 'Circuit Board',
+        subtitle: 'Electronic pathways',
+        description: 'Every computer has a circuit board inside. It connects tiny chips and parts together.',
+        Component: CircuitBoard,
+    },
+    {
+        id: 3,
+        title: 'AI Brain',
+        subtitle: 'Neural network patterns',
+        description: 'AI uses connected dots called nodes to learn patterns — like a digital brain!',
+        Component: AiBrain,
+    },
+    {
+        id: 4,
+        title: 'Space Rocket',
+        subtitle: 'Blast off to the stars',
+        description: 'Rockets use powerful engines to escape Earth and explore space. 3… 2… 1… go!',
+        Component: SpaceRocket,
+    },
+    {
+        id: 5,
+        title: 'Tech Drone',
+        subtitle: 'Aerial explorer',
+        description: 'Drones fly with spinning propellers. They carry cameras to take photos from the sky!',
+        Component: TechDrone,
+    },
+    {
+        id: 6,
+        title: 'VR Headset',
+        subtitle: 'Virtual worlds await',
+        description: 'VR headsets let you see and explore virtual worlds by looking all around you!',
+        Component: VrHeadset,
+    },
 ];
 
 const emptyColors: Record<string, string> = {};
@@ -48,6 +84,7 @@ const HomePage: React.FC = () => {
                             <div className="gallery-card__info">
                                 <h3 className="gallery-card__title">{page.title}</h3>
                                 <p className="gallery-card__subtitle">{page.subtitle}</p>
+                                <p className="gallery-card__description">{page.description}</p>
                             </div>
                         </Link>
                     ))}
