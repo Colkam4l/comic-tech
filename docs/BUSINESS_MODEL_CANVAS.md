@@ -91,15 +91,16 @@
 
 ## 🏷️ Cost Structure
 
-| Category | Monthly Estimate (KES) | Notes |
-|---|---|---|
-| **Engineering** (2 devs, Nairobi-based) | KES 400,000 | Full-stack + mobile |
-| **Content** (illustrator + writer) | KES 100,000 | Kenyan freelancers |
-| **Infrastructure** (Vercel, DB, CDN) | KES 10,000 | Scales with usage |
-| **Marketing** | KES 80,000 | Social media ads + school outreach |
-| **Legal / Compliance** | KES 30,000 | DPA 2019 counsel |
-| **M-Pesa transaction fees** | ~1.5% of revenue | Daraja API fees |
-| **Total** | **~KES 620,000/mo (~$4,800)** | |
+> **Note:** Detailed pricing and cost breakdown will be costed in collaboration with our software development partner. Key cost categories include:
+
+| Category | Notes |
+|---|---|
+| **Engineering** | Full-stack + mobile development team |
+| **Content Creation** | Illustrators + educational content writers |
+| **Infrastructure** | Hosting, database, CDN |
+| **Marketing** | Social media, school outreach, community building |
+| **Legal / Compliance** | DPA 2019 counsel |
+| **Payment Processing** | M-Pesa Daraja API + Stripe fees |
 
 ---
 

@@ -115,6 +115,11 @@
             margin-bottom: 10px;
         }
 
+        em {
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
         blockquote {
             border-left: 4px solid var(--color-primary);
             padding: 8px 16px;
@@ -272,14 +277,18 @@
             text-transform: uppercase;
         }
 
-        .kenya-callout {
-            background: linear-gradient(135deg, #006600 0%, #006600 33%, #bb0000 33%, #bb0000 66%, #006600 66%);
-            color: white;
-            padding: 12px 20px;
+        .note-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
             border-radius: 8px;
+            padding: 12px 16px;
             font-size: 13px;
-            margin: 16px 0;
-            font-weight: 500;
+            margin: 12px 0;
+            color: #92400e;
+        }
+
+        .note-box strong {
+            color: #78350f;
         }
     </style>
 </head>
@@ -307,8 +316,9 @@
             brains, rockets, drones, and VR headsets — using intuitive digital tools, building familiarity with STEM
             imagery while exercising creativity.</p>
         <p><strong>Launch Market:</strong> Kenya is chosen as the initial market due to its rapidly growing EdTech
-            sector, high mobile internet penetration (~90% via mobile), a young population (over 40% under age 15), and
-            the government's emphasis on digital literacy through the CBC (Competency-Based Curriculum) framework.</p>
+            sector, high mobile internet penetration (~90% of internet access via mobile), a young population (over 40%
+            under age 15), and the Kenyan government's emphasis on digital literacy through the CBC (Competency-Based
+            Curriculum) framework.</p>
         <p><strong>Business Goal:</strong> Transform the existing prototype into a commercially viable EdTech product
             targeting Kenyan families and schools, generating recurring revenue through an affordable freemium model
             priced for the Kenyan market, before expanding across East Africa and beyond.</p>
@@ -330,7 +340,7 @@
             <tr>
                 <td><strong>Screen guilt</strong></td>
                 <td>Parents worry about passive screen time on phones</td>
-                <td>Active creation builds productive habits</td>
+                <td>Active creation builds productive screen habits</td>
             </tr>
             <tr>
                 <td><strong>STEM exposure gap</strong></td>
@@ -339,18 +349,23 @@
             </tr>
             <tr>
                 <td><strong>Costly alternatives</strong></td>
-                <td>Global apps (Toca Boca, ABCmouse) priced for Western markets</td>
+                <td>Global apps (Toca Boca, ABCmouse) are priced for Western markets</td>
                 <td>Affordable pricing in KES via M-Pesa</td>
             </tr>
             <tr>
                 <td><strong>Generic content</strong></td>
                 <td>Most coloring apps use Western-centric themes</td>
-                <td>Tech-themed with future local content</td>
+                <td>Tech-themed illustrations with future local content</td>
+            </tr>
+            <tr>
+                <td><strong>No progress tracking</strong></td>
+                <td>Parents and teachers can't see engagement data</td>
+                <td>Dashboard shows time, pages, and skills</td>
             </tr>
             <tr>
                 <td><strong>Connectivity gaps</strong></td>
                 <td>Many areas have intermittent internet</td>
-                <td>Lightweight SVGs work on 3G connections</td>
+                <td>Lightweight SVGs work on low-bandwidth connections</td>
             </tr>
         </table>
 
@@ -364,17 +379,17 @@
             <tr>
                 <td><strong>Kids (4–10)</strong></td>
                 <td>Kenyan primary school children (Grade 1–5)</td>
-                <td>Fun, intuitive experience on any device</td>
+                <td>Fun, intuitive, rewarding experience on any device</td>
             </tr>
             <tr>
                 <td><strong>Parents</strong></td>
-                <td>Urban & peri-urban Kenyan parents with smartphones</td>
-                <td>Affordable, educational, M-Pesa payment</td>
+                <td>Urban &amp; peri-urban Kenyan parents with smartphones</td>
+                <td>Affordable, educational, ad-free, M-Pesa payment</td>
             </tr>
             <tr>
                 <td><strong>Educators</strong></td>
                 <td>CBC teachers in Kenyan primary schools</td>
-                <td>CBC-aligned, works on school devices</td>
+                <td>CBC-aligned activities, class management, works on school devices</td>
             </tr>
         </table>
 
@@ -384,7 +399,7 @@
         <h2>3. Product Vision &amp; Success Metrics</h2>
         <blockquote>"Make every child's first interaction with technology a creative one."</blockquote>
 
-        <h3>Key Results (12-month targets — Kenya)</h3>
+        <h3>Key Results (12-month targets)</h3>
         <table>
             <tr>
                 <th>Metric</th>
@@ -402,9 +417,9 @@
                 <td>Subscription data</td>
             </tr>
             <tr>
-                <td>Monthly Recurring Revenue</td>
+                <td>Monthly Recurring Revenue (MRR)</td>
                 <td>KES 600,000 (~$4,600)</td>
-                <td>M-Pesa / Stripe</td>
+                <td>M-Pesa / Stripe dashboard</td>
             </tr>
             <tr>
                 <td>Average Session Duration</td>
@@ -414,7 +429,7 @@
             <tr>
                 <td>Google Play Rating</td>
                 <td>4.5+ stars</td>
-                <td>Play Store</td>
+                <td>Play Store reviews</td>
             </tr>
             <tr>
                 <td>Kenyan Schools Onboarded</td>
@@ -432,33 +447,40 @@
 
         <!-- 4. CURRENT CAPABILITIES -->
         <h2>4. Current Product Capabilities (v0.2 — Enhanced Prototype)</h2>
+        <p>The current build demonstrates core viability plus kid-friendly UX:</p>
 
         <h3>Core Features</h3>
         <ul>
-            <li><span class="check">✅</span> 6 tech-themed SVG coloring pages</li>
+            <li><span class="check">✅</span> 6 tech-themed SVG coloring pages (Robot, Circuit Board, AI Brain, Rocket,
+                Drone, VR Headset)</li>
             <li><span class="check">✅</span> Click-to-fill region painting with inline SVGs</li>
-            <li><span class="check">✅</span> 16-color palette + full-spectrum custom picker</li>
-            <li><span class="check">✅</span> 3 brush tools: Paint, Eraser, Rainbow</li>
+            <li><span class="check">✅</span> 16-color curated palette + full-spectrum custom picker</li>
+            <li><span class="check">✅</span> 3 brush tools: Paint Bucket, Eraser, Rainbow (random)</li>
             <li><span class="check">✅</span> 20-level undo stack + full reset</li>
             <li><span class="check">✅</span> Export to PNG (2× resolution)</li>
             <li><span class="check">✅</span> Responsive layout (desktop + mobile)</li>
+            <li><span class="check">✅</span> Clean design system (Fredoka + Nunito, teal/coral palette, 8px grid)</li>
             <li><span class="check">✅</span> Deployed on Vercel</li>
         </ul>
 
         <h3>Kid-Friendly UX <span class="new-tag">NEW in v0.2</span></h3>
         <ul>
-            <li><span class="check">✅</span> <strong>Labeled Toolbar</strong> — Visible text labels on every control
-                with section headings</li>
-            <li><span class="check">✅</span> <strong>Live Region Label Indicator</strong> — "🎨 You're coloring: Head"
-                updates on hover/click</li>
-            <li><span class="check">✅</span> <strong>Region Label Maps</strong> — 100+ human-readable names across all 6
-                pages</li>
-            <li><span class="check">✅</span> <strong>Educational Descriptions</strong> — Age-appropriate descriptions on
-                each page</li>
+            <li><span class="check">✅</span> <strong>Labeled Toolbar</strong> — Visible text labels on every toolbar
+                control ("Paint", "Erase", "Rainbow", "Undo", "Start Over", "Save") with section headings ("Colors",
+                "Tools", "Actions")</li>
+            <li><span class="check">✅</span> <strong>Live Region Label Indicator</strong> — Dynamic indicator above the
+                canvas ("🎨 You're coloring: Head") that updates on hover/click, so kids know exactly what part they're
+                coloring</li>
+            <li><span class="check">✅</span> <strong>Region Label Maps</strong> — 100+ human-readable region names
+                across all 6 pages (e.g., "Antenna Ball", "Processor (CPU)", "Left Thinking Area", "Nose Cone", "Camera
+                Lens", "Left Controller")</li>
+            <li><span class="check">✅</span> <strong>Educational Descriptions</strong> — Each coloring page shows an
+                age-appropriate description explaining the tech concept (e.g., "A robot has a head, arms, and legs —
+                just like you! Can you color each part?")</li>
             <li><span class="check">✅</span> <strong>Gallery Descriptions</strong> — Home page cards show educational
-                blurbs</li>
-            <li><span class="check">✅</span> <strong>Guided Onboarding Prompt</strong> — "👆 Tap a part to start
-                coloring!"</li>
+                blurbs so kids understand what they'll learn before clicking</li>
+            <li><span class="check">✅</span> <strong>Guided Onboarding Prompt</strong> — Default state shows "👆 Tap a
+                part to start coloring!" to guide new users</li>
         </ul>
 
         <h3>Tech Stack</h3>
@@ -466,7 +488,7 @@
             <li>React 19 + TypeScript</li>
             <li>Vite 7 (dev server &amp; bundler)</li>
             <li>react-colorful (color picker)</li>
-            <li>react-router-dom v7</li>
+            <li>react-router-dom v7 (client-side routing)</li>
         </ul>
 
         <hr>
@@ -475,76 +497,178 @@
         <h2>5. Feature Requirements</h2>
 
         <h3>5.1 Phase 1 — Foundation (Months 1–3)</h3>
+        <p><em>Goal: Transform prototype into a launchable product</em></p>
 
         <div class="feature-card">
-            <h4>FR-1: User Accounts <span class="priority-tag p0">P0</span></h4>
-            <p>Parents create accounts; children have sub-profiles. Supports phone number sign-up (common in Kenya) +
-                Google OAuth. Kenya DPA 2019 compliant.</p>
+            <h4>FR-1: User Accounts &amp; Authentication <span class="priority-tag p0">P0 — Must Have</span></h4>
+            <p>Parents create accounts; children have sub-profiles under a parent account.</p>
+            <ul>
+                <li>Email/password + Google OAuth sign-up</li>
+                <li>Phone number sign-up (common in Kenya)</li>
+                <li>Up to 4 child profiles per parent account</li>
+                <li>Each child profile has name, avatar, age</li>
+                <li>Child profiles have independent saved progress</li>
+                <li>Kenya Data Protection Act (DPA 2019) compliant data collection</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Parent can create account, add child profiles, and switch between
+                them</p>
         </div>
 
         <div class="feature-card">
-            <h4>FR-2: Cloud Save <span class="priority-tag p0">P0</span></h4>
-            <p>Auto-save every 30s + on page leave. Offline support with sync-on-reconnect (critical for intermittent
-                Kenyan internet).</p>
+            <h4>FR-2: Cloud Save &amp; Progress Persistence <span class="priority-tag p0">P0 — Must Have</span></h4>
+            <p>Coloring progress is automatically saved and synced across devices.</p>
+            <ul>
+                <li>Auto-save every 30 seconds + on page leave</li>
+                <li>Region color state stored per user per page</li>
+                <li>Gallery of completed works per child profile</li>
+                <li>Offline support with sync-on-reconnect</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> User can close tab, return later, and resume coloring from where
+                they left off</p>
         </div>
 
         <div class="feature-card">
-            <h4>FR-3: Expanded Content Library <span class="priority-tag p0">P0</span></h4>
-            <p>Grow to 20+ pages across themed collections. Difficulty levels: Easy, Medium, Challenging. 3 free pages +
-                paywall.</p>
+            <h4>FR-3: Expanded Content Library <span class="priority-tag p0">P0 — Must Have</span></h4>
+            <p>Grow from 6 pages to 20+ across themed collections.</p>
+            <ul>
+                <li>New collections: Coding Creatures, Internet World, Gaming Galaxy, Green Tech</li>
+                <li>5 pages per collection (20+ total at launch)</li>
+                <li>Difficulty levels: Easy (large regions), Medium, Challenging (detailed regions)</li>
+                <li>3 free pages + rest behind paywall</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Content library shows collections; free users can access 3 pages,
+                paid access all</p>
         </div>
 
         <div class="feature-card">
-            <h4>FR-4: Freemium Subscription (M-Pesa) <span class="priority-tag p0">P0</span></h4>
-            <p><strong>Free Tier:</strong> 3 pages, basic tools<br>
-                <strong>TechToons Plus:</strong> KES 250/mo (~$1.99) — all pages, cloud save, export<br>
-                <strong>TechToons Classroom:</strong> KES 500/mo (~$3.99) — class management, 30 students<br>
-                <strong>Payment:</strong> M-Pesa via Daraja API (primary) + Stripe for card payments
+            <h4>FR-4: Freemium Subscription Model <span class="priority-tag p0">P0 — Must Have</span></h4>
+            <p>Monetize through tiered subscription plans priced for the Kenyan market.</p>
+            <ul>
+                <li><strong>Free Tier:</strong> 3 coloring pages, basic tools, no save/export</li>
+                <li><strong>TechToons Plus (KES 250/mo ~ $1.99):</strong> All pages, all tools, cloud save, PNG export,
+                    no ads</li>
+                <li><strong>TechToons Classroom (KES 500/mo ~ $3.99):</strong> Plus features + class management, up to
+                    30 students, progress reports</li>
+                <li><strong>M-Pesa integration</strong> via Daraja API (primary payment in Kenya)</li>
+                <li>Stripe for card payments</li>
+                <li>Google Play in-app purchase for mobile</li>
+                <li>7-day free trial for Plus</li>
+                <li>Annual discount (2 months free)</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> User can subscribe via M-Pesa or card, access gated content, and
+                manage subscription</p>
+        </div>
+
+        <h3>5.2 Phase 2 — Engagement &amp; Learning (Months 4–6)</h3>
+        <p><em>Goal: Increase retention and add educational value</em></p>
+
+        <div class="feature-card">
+            <h4>FR-5: Learning Sidebars ("Did You Know?") <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <p>Each coloring page includes age-appropriate tech facts and mini-lessons.</p>
+            <ul>
+                <li>Collapsible sidebar with 3–5 facts per page</li>
+                <li>Read-aloud audio for younger children</li>
+                <li>"Quiz Me" button with simple multiple-choice</li>
+                <li>Facts reviewed by education advisor</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Sidebar appears on coloring page; read-aloud plays; quiz scores
+                display</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-6: Achievements &amp; Rewards System <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <p>Gamified reward system to encourage exploration and completion.</p>
+            <ul>
+                <li>Badges: "First Robot!", "Color Explorer" (5 pages), "Tech Master" (all pages)</li>
+                <li>Streak tracking (consecutive days)</li>
+                <li>Virtual sticker rewards collected in a sticker book</li>
+                <li>Celebratory animations on milestone completion</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Badges appear in profile; streak counter visible; stickers
+                collectible</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-7: Parent Dashboard <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <p>Parents can monitor child engagement and learning progress.</p>
+            <ul>
+                <li>Time spent per session and per page</li>
+                <li>Pages completed and collections progress</li>
+                <li>Quiz scores and facts learned</li>
+                <li>Weekly email summary (opt-in)</li>
+                <li>Screen time limits (optional)</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Dashboard displays charts and stats; email summary sends on
+                schedule</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-8: Sharing &amp; Social Gallery <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <p>Kids can share completed artwork in a moderated community gallery.</p>
+            <ul>
+                <li>"Share to Gallery" button on completed works</li>
+                <li>Moderated (AI + human review) before publishing</li>
+                <li>Kids can "star" others' artwork (no comments for safety)</li>
+                <li>Share link to family via email/message</li>
+                <li>No personally identifiable info displayed</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Artwork appears in gallery after moderation; star counts visible
             </p>
         </div>
 
-        <h3>5.2 Phase 2 — Engagement (Months 4–6)</h3>
+        <h3>5.3 Phase 3 — Scale &amp; Platform (Months 7–12)</h3>
+        <p><em>Goal: Expand platform reach and revenue channels</em></p>
 
         <div class="feature-card">
-            <h4>FR-5: Learning Sidebars <span class="priority-tag p1">P1</span></h4>
-            <p>3–5 tech facts per page. Read-aloud audio for younger children. "Quiz Me" multiple-choice questions.</p>
+            <h4>FR-9: Mobile Apps (iOS &amp; Android) <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <p>Native mobile apps wrapping the web experience with touch-optimized controls.</p>
+            <ul>
+                <li>React Native or Capacitor wrapper</li>
+                <li>Touch gestures: tap-to-fill, pinch-to-zoom, swipe navigation</li>
+                <li>Offline mode with local storage</li>
+                <li>Push notifications for streaks and new content</li>
+                <li>In-app purchases for subscriptions</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> App published on App Store and Google Play; feature parity with web
+            </p>
         </div>
 
         <div class="feature-card">
-            <h4>FR-6: Achievements <span class="priority-tag p1">P1</span></h4>
-            <p>Badges, streak tracking, virtual sticker rewards, celebratory animations.</p>
+            <h4>FR-10: Educator / Classroom Tools <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <p>Tools for teachers to use TechToons in classroom settings.</p>
+            <ul>
+                <li>Class creation with join codes</li>
+                <li>Assign specific pages as "homework"</li>
+                <li>View class-wide progress and individual reports</li>
+                <li>Curriculum alignment tags (Kenya CBC — Digital Literacy strand)</li>
+                <li>Bulk student account creation via CSV</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Teacher creates class, assigns page, views class progress report
+            </p>
         </div>
 
         <div class="feature-card">
-            <h4>FR-7: Parent Dashboard <span class="priority-tag p1">P1</span></h4>
-            <p>Session time, pages completed, quiz scores. Weekly SMS/email summary. Screen time limits.</p>
+            <h4>FR-11: Printable Worksheets <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <p>Generate print-ready PDF worksheets from any coloring page.</p>
+            <ul>
+                <li>"Print" button exports SVG as black-and-white PDF</li>
+                <li>Includes page title and fun facts on the worksheet</li>
+                <li>A4 and Letter size options</li>
+                <li>Premium feature (Plus subscribers)</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> PDF downloads with clean line art and facts</p>
         </div>
 
         <div class="feature-card">
-            <h4>FR-8: Sharing Gallery <span class="priority-tag p2">P2</span></h4>
-            <p>Moderated community gallery. WhatsApp sharing for family. No PII displayed.</p>
-        </div>
-
-        <h3>5.3 Phase 3 — Scale (Months 7–12)</h3>
-
-        <div class="feature-card">
-            <h4>FR-9: Android App <span class="priority-tag p1">P1</span></h4>
-            <p>Android-first (95% of Kenyan mobile). Touch gestures, offline mode, push notifications.</p>
-        </div>
-
-        <div class="feature-card">
-            <h4>FR-10: Classroom Tools <span class="priority-tag p1">P1</span></h4>
-            <p>Join codes, page assignments, CBC Digital Literacy strand alignment tags.</p>
-        </div>
-
-        <div class="feature-card">
-            <h4>FR-11: Printable Worksheets <span class="priority-tag p2">P2</span></h4>
-            <p>A4 PDF exports with line art and fun facts for device-free sessions.</p>
-        </div>
-
-        <div class="feature-card">
-            <h4>FR-12: Partner Integrations <span class="priority-tag p2">P2</span></h4>
-            <p>Embeddable widget for partner sites. API key auth. Revenue share tracking.</p>
+            <h4>FR-12: API &amp; Partner Integrations <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <p>Open API for embedding TechToons in partner platforms.</p>
+            <ul>
+                <li>Embeddable widget (iframe) for partner sites</li>
+                <li>API key authentication</li>
+                <li>Custom branding options for partners</li>
+                <li>Revenue share tracking</li>
+            </ul>
+            <p><strong>Acceptance Criteria:</strong> Partner embeds widget; usage tracked in admin panel</p>
         </div>
 
         <hr>
@@ -558,58 +682,68 @@
             </tr>
             <tr>
                 <td><strong>Performance</strong></td>
-                <td>FCP &lt; 1.5s on 3G; SVG interaction &lt; 50ms; optimized for low-bandwidth</td>
+                <td>First Contentful Paint &lt; 1.5s on 3G; SVG coloring interaction &lt; 50ms; optimized for
+                    low-bandwidth Kenyan connections</td>
+            </tr>
+            <tr>
+                <td><strong>Accessibility</strong></td>
+                <td>WCAG 2.1 AA compliance; keyboard navigation; screen reader support for UI controls</td>
             </tr>
             <tr>
                 <td><strong>Security</strong></td>
-                <td>Kenya DPA 2019 compliance; encrypted data at rest/in transit</td>
+                <td>Kenya Data Protection Act (DPA 2019) compliance; encrypted data at rest and in transit</td>
             </tr>
             <tr>
                 <td><strong>Privacy</strong></td>
-                <td>No tracking on child accounts; GDPR/DPA deletion on request</td>
+                <td>No third-party tracking for child accounts; GDPR/DPA data deletion on request</td>
             </tr>
             <tr>
                 <td><strong>Scalability</strong></td>
-                <td>50K concurrent users; CDN via Cloudflare (Nairobi PoP)</td>
+                <td>Support 50K concurrent users; CDN-served static assets (Cloudflare with Nairobi PoP)</td>
             </tr>
             <tr>
-                <td><strong>Browser</strong></td>
-                <td>Chrome 90+ (dominant in Kenya), Samsung Internet, Firefox 100+</td>
+                <td><strong>Browser Support</strong></td>
+                <td>Chrome 90+ (dominant in Kenya), Samsung Internet, Firefox 100+, Edge 90+</td>
             </tr>
             <tr>
-                <td><strong>i18n</strong></td>
-                <td>Launch: English → Swahili → French (East Africa expansion)</td>
+                <td><strong>Uptime</strong></td>
+                <td>99.9% availability SLA</td>
+            </tr>
+            <tr>
+                <td><strong>Internationalization</strong></td>
+                <td>i18n framework in place; launch with English, then Swahili; future: French (for East Africa
+                    expansion)</td>
             </tr>
         </table>
 
         <hr>
 
         <!-- 7. ARCHITECTURE -->
-        <h2>7. Technical Architecture</h2>
+        <h2>7. Technical Architecture (Proposed)</h2>
         <div class="arch">┌────────────────────────────────────────────────────┐
-            │ Client (Web/Android) │
+            │ Client (Web/Mobile) │
             │ React 19 + TypeScript + Vite │
             │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
             │ │ Coloring │ │ Auth │ │ Parent Dashboard │ │
-            │ │ Engine │ │ (Phone#) │ │ + Analytics │ │
+            │ │ Engine │ │ Flows │ │ + Analytics │ │
             │ └──────────┘ └──────────┘ └──────────────────┘ │
             └──────────────────┬─────────────────────────────────┘
             │ HTTPS / REST + WebSocket
             ┌──────────────────▼─────────────────────────────────┐
             │ API Layer │
-            │ Node.js + Express │
+            │ Node.js + Express (or Next.js API Routes) │
             │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
-            │ │ Auth │ │ Content │ │ M-Pesa (Daraja) │ │
-            │ │ Service │ │ Service │ │ + Stripe │ │
+            │ │ Auth │ │ Content │ │ Subscription │ │
+            │ │ Service │ │ Service │ │ Service (Stripe) │ │
             │ └──────────┘ └──────────┘ └──────────────────┘ │
             └──────────────────┬─────────────────────────────────┘
             │
             ┌──────────────────▼─────────────────────────────────┐
             │ Data Layer │
             │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
-            │ │PostgreSQL│ │ Redis │ │ Cloudflare R2 │ │
-            │ │(Users, │ │(Cache, │ │ (Exported │ │
-            │ │ Progress)│ │ Sessions)│ │ Artwork, CDN) │ │
+            │ │PostgreSQL│ │ Redis │ │ S3 / Cloudflare │ │
+            │ │(Users, │ │(Cache, │ │ R2 (Exported │ │
+            │ │ Progress)│ │ Sessions)│ │ Artwork) │ │
             │ └──────────┘ └──────────┘ └──────────────────┘ │
             └────────────────────────────────────────────────────┘</div>
 
@@ -617,6 +751,8 @@
 
         <!-- 8. MONETIZATION -->
         <h2>8. Monetization Strategy</h2>
+
+        <h3>Revenue Streams</h3>
         <table>
             <tr>
                 <th>Stream</th>
@@ -625,33 +761,80 @@
             </tr>
             <tr>
                 <td><strong>TechToons Plus</strong></td>
-                <td>KES 250/mo per family</td>
+                <td>KES 250/mo (~$1.99) per family</td>
                 <td>KES 3.6M (~$28,000)</td>
             </tr>
             <tr>
                 <td><strong>TechToons Classroom</strong></td>
-                <td>KES 500/mo per school</td>
+                <td>KES 500/mo (~$3.99) per school</td>
                 <td>KES 1.2M (~$9,500)</td>
             </tr>
             <tr>
+                <td><strong>Printable Worksheets</strong></td>
+                <td>Included in Plus</td>
+                <td>— (retention driver)</td>
+            </tr>
+            <tr>
                 <td><strong>NGO/Govt Partnerships</strong></td>
-                <td>Safaricom Foundation, KICD</td>
+                <td>Sponsored deployments (e.g., Safaricom Foundation, KICD)</td>
                 <td>KES 1.5M (~$11,500)</td>
             </tr>
             <tr>
-                <td><strong>Branded Content</strong></td>
-                <td>Safaricom, M-Pesa, Konza</td>
+                <td><strong>Branded Content Packs</strong></td>
+                <td>Sponsored collections (e.g., Safaricom, M-Pesa, Konza Technopolis)</td>
                 <td>KES 1M (~$7,700)</td>
             </tr>
             <tr>
                 <td></td>
-                <td><strong>Total</strong></td>
+                <td><strong>Projected Total</strong></td>
                 <td><strong>KES 7.3M (~$56,700)</strong></td>
             </tr>
         </table>
-        <p><strong>Pricing insight:</strong> KES 250/mo is below a single KFC meal (~KES 600). Global competitors like
-            Toca Boca (KES 650/mo) and ABCmouse (KES 1,700/mo) are unaffordable for most Kenyan families. M-Pesa removes
-            payment friction for 90%+ of adults.</p>
+
+        <h3>Pricing Justification</h3>
+        <ul>
+            <li>Priced for Kenyan families: KES 250/mo is below the cost of a single meal at KFC (KES ~600)</li>
+            <li>Global competitors (Toca Boca at KES 650/mo, ABCmouse at KES 1,700/mo) are unaffordable for most Kenyan
+                families</li>
+            <li><strong>M-Pesa</strong> is the primary payment method — frictionless for 90%+ of Kenyan adults</li>
+            <li>Classroom pricing allows schools to fund from per-learner capitation grants (KES 1,420/pupil/yr)</li>
+        </ul>
+
+        <h3>Cost Structure</h3>
+        <div class="note-box">
+            <strong>📋 Note:</strong> Detailed pricing and cost breakdown will be costed in collaboration with our
+            software development partner. Key cost categories are identified below.
+        </div>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><strong>Engineering</strong></td>
+                <td>Full-stack + mobile development team</td>
+            </tr>
+            <tr>
+                <td><strong>Content Creation</strong></td>
+                <td>Illustrators + educational content writers</td>
+            </tr>
+            <tr>
+                <td><strong>Infrastructure</strong></td>
+                <td>Hosting, database, CDN</td>
+            </tr>
+            <tr>
+                <td><strong>Marketing</strong></td>
+                <td>Social media, school outreach, community building</td>
+            </tr>
+            <tr>
+                <td><strong>Legal / Compliance</strong></td>
+                <td>DPA 2019 counsel</td>
+            </tr>
+            <tr>
+                <td><strong>Payment Processing</strong></td>
+                <td>M-Pesa Daraja API + Stripe fees</td>
+            </tr>
+        </table>
 
         <hr>
 
@@ -663,11 +846,11 @@
                 <th>TechToons</th>
                 <th>Toca Boca</th>
                 <th>Kytabu</th>
-                <th>Eneza</th>
+                <th>Eneza Education</th>
                 <th>eLimu</th>
             </tr>
             <tr>
-                <td><strong>STEM Theme</strong></td>
+                <td><strong>Tech/STEM Theme</strong></td>
                 <td><span class="check">✅ Unique</span></td>
                 <td><span class="cross">❌</span></td>
                 <td><span class="cross">❌</span></td>
@@ -683,11 +866,11 @@
                 <td><span class="cross">❌</span></td>
             </tr>
             <tr>
-                <td><strong>Web-Based</strong></td>
+                <td><strong>Web-Based (No Install)</strong></td>
                 <td><span class="check">✅</span></td>
                 <td><span class="cross">❌</span></td>
                 <td><span class="check">✅</span></td>
-                <td><span class="check">✅</span></td>
+                <td><span class="check">✅</span> (USSD+Web)</td>
                 <td><span class="check">✅</span></td>
             </tr>
             <tr>
@@ -699,7 +882,7 @@
                 <td><span class="check">✅</span></td>
             </tr>
             <tr>
-                <td><strong>M-Pesa</strong></td>
+                <td><strong>M-Pesa Payment</strong></td>
                 <td><span class="check">✅</span></td>
                 <td><span class="cross">❌</span></td>
                 <td><span class="check">✅</span></td>
@@ -708,11 +891,11 @@
             </tr>
             <tr>
                 <td><strong>Price (KES/mo)</strong></td>
-                <td>250</td>
-                <td>650</td>
-                <td>200</td>
-                <td>10/day</td>
-                <td>300</td>
+                <td>KES 250</td>
+                <td>KES 650</td>
+                <td>KES 200</td>
+                <td>KES 10/day</td>
+                <td>KES 300</td>
             </tr>
             <tr>
                 <td><strong>Target Age</strong></td>
@@ -722,15 +905,26 @@
                 <td>6–18</td>
                 <td>3–12</td>
             </tr>
+            <tr>
+                <td><strong>Export Artwork</strong></td>
+                <td><span class="check">✅</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+                <td><span class="cross">❌</span></td>
+            </tr>
         </table>
-        <p><strong>Competitive Moat:</strong> Only product combining creative coloring with tech-specific STEM learning
-            in Kenya. Local competitors focus on text-based tutoring — none offer interactive art. Global competitors
-            are priced out and lack CBC alignment.</p>
+        <p><strong>Competitive Moat:</strong> TechToons is the only Kenyan product combining creative coloring with
+            tech-specific STEM learning. Local competitors (Kytabu, Eneza, eLimu) focus on text-based subject tutoring —
+            none offer a creative, interactive art experience. Global competitors (Toca Boca) are priced out of the
+            Kenyan market and lack CBC alignment.</p>
 
         <hr>
 
         <!-- 10. GTM -->
-        <h2>10. Go-To-Market Strategy (Kenya-First)</h2>
+        <h2>10. Go-To-Market Strategy</h2>
+
+        <h3>Launch Plan (Kenya-First)</h3>
         <table>
             <tr>
                 <th>Phase</th>
@@ -740,50 +934,66 @@
             <tr>
                 <td><strong>Soft Launch (Nairobi)</strong></td>
                 <td>Month 3</td>
-                <td>Free tier; 20 beta parents in Nairobi</td>
+                <td>Launch web app with free tier; onboard 20 beta parents in Nairobi</td>
             </tr>
             <tr>
                 <td><strong>School Pilots</strong></td>
                 <td>Month 3–4</td>
-                <td>5 Nairobi schools; CBC Digital Literacy alignment</td>
+                <td>Partner with 5 Nairobi primary schools; align with CBC Digital Literacy strand</td>
             </tr>
             <tr>
-                <td><strong>Social Push</strong></td>
+                <td><strong>Social Media Push</strong></td>
                 <td>Month 4–5</td>
-                <td>TikTok/IG Reels; WhatsApp parent groups</td>
+                <td>TikTok/Instagram Reels in Kenya; WhatsApp group outreach to parent communities</td>
             </tr>
             <tr>
-                <td><strong>M-Pesa Launch</strong></td>
+                <td><strong>M-Pesa Integration</strong></td>
                 <td>Month 5</td>
-                <td>Enable M-Pesa subscriptions</td>
+                <td>Enable M-Pesa payments for Plus subscriptions</td>
             </tr>
             <tr>
                 <td><strong>Education Outreach</strong></td>
                 <td>Month 5–6</td>
-                <td>KICD workshops; KENET partnership</td>
+                <td>Present at KICD curriculum workshops; partner with Kenya Education Network (KENET)</td>
             </tr>
             <tr>
-                <td><strong>Google Play</strong></td>
+                <td><strong>Google Play Launch</strong></td>
                 <td>Month 7</td>
-                <td>Android app (Family category)</td>
+                <td>Android app (most Kenyan devices); Google Play Family category</td>
             </tr>
             <tr>
                 <td><strong>County Expansion</strong></td>
                 <td>Month 8–10</td>
-                <td>Mombasa, Kisumu, Nakuru, Eldoret</td>
+                <td>Expand to Mombasa, Kisumu, Nakuru, Eldoret</td>
             </tr>
             <tr>
-                <td><strong>East Africa</strong></td>
+                <td><strong>East Africa Scale</strong></td>
                 <td>Month 11–12</td>
-                <td>Uganda, Tanzania, Rwanda</td>
+                <td>Launch in Uganda, Tanzania, Rwanda</td>
             </tr>
         </table>
+
+        <h3>Distribution Channels</h3>
+        <ol>
+            <li><strong>Google Play Store</strong> — Android dominates Kenya (95%+ mobile market share); Family category
+            </li>
+            <li><strong>WhatsApp &amp; Social Media</strong> — WhatsApp groups are the primary parent community channel
+                in Kenya; TikTok/Instagram for awareness</li>
+            <li><strong>School Partnerships</strong> — Direct outreach to CBC-implementing schools; training for Digital
+                Literacy teachers</li>
+            <li><strong>Safaricom/M-Pesa Ecosystem</strong> — Explore M-Pesa Mini-Apps and Safaricom app store placement
+            </li>
+            <li><strong>Education Organizations</strong> — Kenya Institute of Curriculum Development (KICD), KENET,
+                UNESCO Nairobi</li>
+            <li><strong>Organic Search</strong> — SEO for "CBC digital literacy games Kenya", "kids STEM activities
+                Nairobi"</li>
+        </ol>
 
         <hr>
 
         <!-- 11. USER STORIES -->
         <h2>11. User Stories</h2>
-        <h3>Parent Stories</h3>
+        <h3>Parent User Stories</h3>
         <table>
             <tr>
                 <th>ID</th>
@@ -792,27 +1002,32 @@
             </tr>
             <tr>
                 <td>US-1</td>
-                <td>As a parent, I want to create an account with my phone number</td>
+                <td>As a parent, I want to create an account so my child's progress is saved</td>
                 <td><span class="priority-tag p0">P0</span></td>
             </tr>
             <tr>
                 <td>US-2</td>
-                <td>As a parent, I want to pay with M-Pesa to unlock all content</td>
+                <td>As a parent, I want to set up child profiles so each kid has their own space</td>
                 <td><span class="priority-tag p0">P0</span></td>
             </tr>
             <tr>
                 <td>US-3</td>
-                <td>As a parent, I want to view a dashboard of my child's progress</td>
+                <td>As a parent, I want to view a dashboard so I can see what my child has been doing</td>
                 <td><span class="priority-tag p1">P1</span></td>
             </tr>
             <tr>
                 <td>US-4</td>
-                <td>As a parent, I want to set screen time limits</td>
+                <td>As a parent, I want to subscribe to unlock all content for my family</td>
+                <td><span class="priority-tag p0">P0</span></td>
+            </tr>
+            <tr>
+                <td>US-5</td>
+                <td>As a parent, I want to set screen time limits so my child doesn't overuse the app</td>
                 <td><span class="priority-tag p2">P2</span></td>
             </tr>
         </table>
 
-        <h3>Child Stories</h3>
+        <h3>Child User Stories</h3>
         <table>
             <tr>
                 <th>ID</th>
@@ -820,28 +1035,33 @@
                 <th>Priority</th>
             </tr>
             <tr>
-                <td>US-5</td>
-                <td>As a child, I want to pick a coloring page from the gallery</td>
-                <td><span class="priority-tag p0">P0</span></td>
-            </tr>
-            <tr>
                 <td>US-6</td>
-                <td>As a child, I want to tap regions to fill them with color</td>
+                <td>As a child, I want to pick a coloring page from a gallery so I can choose what to color</td>
                 <td><span class="priority-tag p0">P0</span></td>
             </tr>
             <tr>
                 <td>US-7</td>
-                <td>As a child, I want to earn badges and share art on WhatsApp</td>
-                <td><span class="priority-tag p1">P1</span></td>
+                <td>As a child, I want to tap regions to fill them with color so I can create art</td>
+                <td><span class="priority-tag p0">P0</span></td>
             </tr>
             <tr>
                 <td>US-8</td>
-                <td>As a child, I want to learn fun facts about tech while coloring</td>
+                <td>As a child, I want to earn badges when I finish pages so I feel accomplished</td>
                 <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-9</td>
+                <td>As a child, I want to read fun facts about the tech I'm coloring so I can learn</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-10</td>
+                <td>As a child, I want to share my artwork with family so they can see what I made</td>
+                <td><span class="priority-tag p2">P2</span></td>
             </tr>
         </table>
 
-        <h3>Educator Stories</h3>
+        <h3>Educator User Stories</h3>
         <table>
             <tr>
                 <th>ID</th>
@@ -849,18 +1069,23 @@
                 <th>Priority</th>
             </tr>
             <tr>
-                <td>US-9</td>
-                <td>As a CBC teacher, I want to create a class with join codes</td>
-                <td><span class="priority-tag p1">P1</span></td>
-            </tr>
-            <tr>
-                <td>US-10</td>
-                <td>As a teacher, I want to assign pages aligned with Digital Literacy lessons</td>
-                <td><span class="priority-tag p1">P1</span></td>
-            </tr>
-            <tr>
                 <td>US-11</td>
-                <td>As a teacher, I want to print worksheets for device-free sessions</td>
+                <td>As a teacher, I want to create a class so my students can use TechToons together</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-12</td>
+                <td>As a teacher, I want to assign specific pages so coloring aligns with my lesson plan</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-13</td>
+                <td>As a teacher, I want to view class progress so I can track student engagement</td>
+                <td><span class="priority-tag p1">P1</span></td>
+            </tr>
+            <tr>
+                <td>US-14</td>
+                <td>As a teacher, I want to print worksheets so students without devices can participate</td>
                 <td><span class="priority-tag p2">P2</span></td>
             </tr>
         </table>
@@ -877,107 +1102,131 @@
                 <th>Mitigation</th>
             </tr>
             <tr>
-                <td><strong>DPA 2019 compliance</strong></td>
+                <td><strong>Kenya DPA 2019 compliance</strong></td>
                 <td>Medium</td>
                 <td>Critical</td>
-                <td>Kenyan legal counsel; Africa-region servers</td>
+                <td>Engage Kenyan legal counsel; data stored in Africa-region servers</td>
             </tr>
             <tr>
-                <td><strong>Low willingness to pay</strong></td>
+                <td><strong>Low conversion / willingness to pay</strong></td>
                 <td>High</td>
                 <td>High</td>
-                <td>KES 250 pricing; M-Pesa removes friction</td>
+                <td>Strong free tier; KES 250 pricing validated against ARPU benchmarks; M-Pesa removes friction</td>
             </tr>
             <tr>
-                <td><strong>Connectivity gaps</strong></td>
+                <td><strong>Internet connectivity gaps</strong></td>
                 <td>Medium</td>
                 <td>Medium</td>
-                <td>~7KB SVGs; service worker caching</td>
+                <td>Lightweight SVGs (~7KB each); service worker caching for offline use</td>
+            </tr>
+            <tr>
+                <td><strong>Content creation bottleneck</strong></td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>SVG illustration pipeline; hire Kenyan freelance illustrators via platforms like Brighter Monday
+                </td>
             </tr>
             <tr>
                 <td><strong>Device fragmentation</strong></td>
                 <td>Medium</td>
                 <td>Medium</td>
-                <td>Test on Tecno, Infinix, Samsung A-series</td>
+                <td>Test on low-end Android devices common in Kenya (Tecno, Infinix, Samsung A-series)</td>
             </tr>
             <tr>
-                <td><strong>School IT gaps</strong></td>
+                <td><strong>School IT infrastructure</strong></td>
                 <td>Medium</td>
                 <td>Medium</td>
-                <td>Web-based; no install; works on shared devices</td>
+                <td>Web-based (no install needed); works on Chromebooks and shared school tablets</td>
+            </tr>
+            <tr>
+                <td><strong>Competitor copies STEM angle</strong></td>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>First-mover advantage in Kenya's creative EdTech space</td>
             </tr>
         </table>
 
         <hr>
 
         <!-- 13. ROADMAP -->
-        <h2>13. Roadmap</h2>
+        <h2>13. Roadmap Summary</h2>
         <div class="roadmap">Month 1–3 ▓▓▓▓▓▓▓░░░░░ Phase 1: Foundation
-            ├─ User accounts (phone # sign-up)
+            ├─ User accounts &amp; auth
             ├─ Cloud save
             ├─ Expand to 20+ pages
-            └─ Freemium + M-Pesa
+            └─ Freemium + Stripe
 
             Month 4–6 ░░░░▓▓▓▓▓░░░ Phase 2: Engagement
             ├─ Learning sidebars
             ├─ Achievements &amp; badges
             ├─ Parent dashboard
-            └─ WhatsApp sharing
+            └─ Community gallery
 
             Month 7–12 ░░░░░░░▓▓▓▓▓ Phase 3: Scale
-            ├─ Android app (Google Play)
-            ├─ CBC classroom tools
-            ├─ County expansion
-            └─ East Africa launch</div>
+            ├─ iOS &amp; Android apps
+            ├─ Classroom tools
+            ├─ Printable worksheets
+            └─ Partner API</div>
 
         <hr>
 
         <!-- 14. APPENDIX -->
         <h2>14. Appendix</h2>
-        <h3>Glossary</h3>
+        <h3>A. Glossary</h3>
         <table>
             <tr>
                 <th>Term</th>
                 <th>Definition</th>
             </tr>
             <tr>
+                <td><strong>Region</strong></td>
+                <td>An individual SVG path element that can be filled with color</td>
+            </tr>
+            <tr>
+                <td><strong>Collection</strong></td>
+                <td>A themed group of 5 coloring pages</td>
+            </tr>
+            <tr>
+                <td><strong>Streak</strong></td>
+                <td>Consecutive days a child uses the app</td>
+            </tr>
+            <tr>
                 <td><strong>CBC</strong></td>
-                <td>Competency-Based Curriculum — Kenya's national education framework</td>
+                <td>Competency-Based Curriculum — Kenya's national education framework (2017+)</td>
             </tr>
             <tr>
                 <td><strong>DPA 2019</strong></td>
-                <td>Kenya Data Protection Act</td>
+                <td>Kenya Data Protection Act — governs collection of personal data including children's</td>
             </tr>
             <tr>
                 <td><strong>M-Pesa</strong></td>
-                <td>Mobile money platform by Safaricom (90%+ adult adoption)</td>
+                <td>Mobile money platform by Safaricom, used by 90%+ of Kenyan adults</td>
             </tr>
             <tr>
                 <td><strong>KICD</strong></td>
-                <td>Kenya Institute of Curriculum Development</td>
+                <td>Kenya Institute of Curriculum Development — the body overseeing CBC implementation</td>
             </tr>
             <tr>
                 <td><strong>KES</strong></td>
-                <td>Kenyan Shilling (1 USD ≈ 129 KES)</td>
-            </tr>
-            <tr>
-                <td><strong>Region</strong></td>
-                <td>An individual SVG path that can be filled with color</td>
+                <td>Kenyan Shilling (1 USD ≈ 129 KES as of Feb 2026)</td>
             </tr>
         </table>
 
-        <h3>Open Questions</h3>
+        <h3>B. Open Questions</h3>
         <ol>
-            <li>Add Swahili translations from launch or wait for demand data?</li>
-            <li>Integrate with the government's Digital Literacy Programme (DLP) devices?</li>
-            <li>Partner with Safaricom Foundation for a sponsored free tier in rural schools?</li>
-            <li>Optimal M-Pesa interval: monthly or weekly (KES 65/week)?</li>
-            <li>Include Kenya-specific illustrations (matatu, Kenya satellite, M-Pesa phone)?</li>
+            <li>Should we add Swahili translations from launch or wait for user demand data?</li>
+            <li>Can we integrate with the government's Digital Literacy Programme (DLP) devices in schools?</li>
+            <li>Should we partner with Safaricom Foundation for a sponsored free tier in rural schools?</li>
+            <li>What's the optimal M-Pesa payment interval — monthly or weekly (e.g., KES 65/week for lower commitment)?
+            </li>
+            <li>Should we include Kenya-specific illustrations (e.g., matatu, Kenya satellite, M-Pesa phone) in future
+                collections?</li>
         </ol>
 
         <hr>
         <p style="text-align: center; color: var(--color-text-secondary); font-size: 12px; margin-top: 32px;"><em>This
-                document is a living artifact. Updated as requirements evolve and user feedback is gathered.</em></p>
+                document is a living artifact. It will be updated as business requirements evolve and user feedback is
+                gathered.</em></p>
         <p style="text-align: center; color: var(--color-text-secondary); font-size: 11px;">© 2026 TechToons.
             Confidential.</p>
 
