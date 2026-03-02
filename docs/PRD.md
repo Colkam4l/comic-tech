@@ -70,7 +70,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 - ✅ 6 tech-themed SVG coloring pages (Robot, Circuit Board, AI Brain, Rocket, Drone, VR Headset)
 - ✅ Click-to-fill region painting with inline SVGs
 - ✅ 16-color curated palette + full-spectrum custom picker
-- ✅ 3 brush tools: Paint Bucket, Eraser, Rainbow (random)
+- ✅ 4 brush tools: Paint Bucket (fill), Freehand Brush (draw with finger/stylus), Eraser, Rainbow (random)
 - ✅ 20-level undo stack + full reset
 - ✅ Export to PNG (2× resolution)
 - ✅ Responsive layout (desktop + mobile)
@@ -84,6 +84,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 - ✅ **Educational Descriptions** — Each coloring page shows an age-appropriate description explaining the tech concept (e.g., "A robot has a head, arms, and legs — just like you! Can you color each part?")
 - ✅ **Gallery Descriptions** — Home page cards show educational blurbs so kids understand what they'll learn before clicking
 - ✅ **Guided Onboarding Prompt** — Default state shows "👆 Tap a part to start coloring!" to guide new users
+- ✅ **Color Name Labels** — Selected color displays its name ("Red", "Teal", "Violet", etc.) next to the color preview for learning
 
 ### Tech Stack
 - React 19 + TypeScript
@@ -224,32 +225,38 @@ The current build demonstrates core viability plus kid-friendly UX:
 
 ## 7. Technical Architecture (Proposed)
 
+> **Why Supabase?** Supabase provides an all-in-one backend (PostgreSQL database, authentication, file storage, edge functions) with a generous free tier (50K MAU, 500MB DB, 1GB storage). This drastically reduces backend complexity and cost — ideal for a Kenya-first MVP where every KES counts. For scale, Supabase Pro ($25/mo) handles the first 100K+ MAU before custom infrastructure is needed.
+
 ```
 ┌────────────────────────────────────────────────────┐
-│                    Client (Web/Mobile)              │
+│                    Client (Web/Android)             │
 │  React 19 + TypeScript + Vite                      │
 │  ┌──────────┐ ┌──────────┐ ┌──────────────────┐   │
 │  │ Coloring │ │ Auth     │ │ Parent Dashboard │   │
-│  │ Engine   │ │ Flows    │ │ + Analytics      │   │
+│  │ Engine   │ │ (Phone#) │ │ + Analytics      │   │
 │  └──────────┘ └──────────┘ └──────────────────┘   │
 └──────────────────┬─────────────────────────────────┘
-                   │ HTTPS / REST + WebSocket
+                   │ HTTPS / REST + Realtime
 ┌──────────────────▼─────────────────────────────────┐
-│                   API Layer                         │
-│  Node.js + Express (or Next.js API Routes)         │
+│               Supabase (Backend-as-a-Service)       │
 │  ┌──────────┐ ┌──────────┐ ┌──────────────────┐   │
-│  │ Auth     │ │ Content  │ │ Subscription     │   │
-│  │ Service  │ │ Service  │ │ Service (Stripe) │   │
+│  │ Auth     │ │ Database │ │ Storage          │   │
+│  │ (Email,  │ │(PostgreSQL│ │ (Exported        │   │
+│  │  Phone,  │ │  Users,  │ │  Artwork, SVGs)  │   │
+│  │  Google) │ │ Progress)│ │                  │   │
 │  └──────────┘ └──────────┘ └──────────────────┘   │
+│  ┌──────────┐ ┌──────────┐                        │
+│  │ Edge     │ │ Realtime │                        │
+│  │ Functions│ │ (Sync)   │                        │
+│  └──────────┘ └──────────┘                        │
 └──────────────────┬─────────────────────────────────┘
                    │
 ┌──────────────────▼─────────────────────────────────┐
-│                 Data Layer                          │
-│  ┌──────────┐ ┌──────────┐ ┌──────────────────┐   │
-│  │ PostgreSQL│ │ Redis    │ │ S3 / Cloudflare  │   │
-│  │ (Users,  │ │ (Cache,  │ │ R2 (Exported     │   │
-│  │  Progress)│ │  Sessions)│ │  Artwork)        │   │
-│  └──────────┘ └──────────┘ └──────────────────┘   │
+│               External Services                    │
+│  ┌──────────────────┐ ┌──────────────────────────┐ │
+│  │ M-Pesa (Daraja)  │ │ Cloudflare CDN           │ │
+│  │ + Stripe Cards   │ │ (Nairobi PoP)            │ │
+│  └──────────────────┘ └──────────────────────────┘ │
 └────────────────────────────────────────────────────┘
 ```
 
@@ -273,6 +280,9 @@ The current build demonstrates core viability plus kid-friendly UX:
 - Global competitors (Toca Boca at KES 650/mo, ABCmouse at KES 1,700/mo) are unaffordable for most Kenyan families
 - **M-Pesa** is the primary payment method — frictionless for 90%+ of Kenyan adults
 - Classroom pricing allows schools to fund from per-learner capitation grants (KES 1,420/pupil/yr)
+
+### Cost Structure
+> **Note:** Detailed pricing and cost breakdown will be costed in collaboration with our software development partner. Key cost categories include: engineering, content creation, infrastructure, marketing, legal/compliance, and payment processing fees.
 
 ---
 

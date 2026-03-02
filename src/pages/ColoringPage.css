@@ -87,6 +87,36 @@
     filter: brightness(0.95);
 }
 
+/* ─── Freehand brush canvas overlay ─── */
+.coloring-page__svg-wrapper {
+    position: relative;
+}
+
+.coloring-page__brush-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    touch-action: none;
+    z-index: 5;
+}
+
+.coloring-page__brush-canvas--active {
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+/* In brush mode, disable the SVG hover and click effects */
+.coloring-page__svg-wrapper--brush-mode svg [data-region] {
+    pointer-events: none;
+}
+
+.coloring-page__svg-wrapper--brush-mode svg [data-region]:hover {
+    filter: none;
+}
+
 @media (max-width: 768px) {
     .coloring-page__top {
         padding: var(--space-2) var(--space-4) 0;

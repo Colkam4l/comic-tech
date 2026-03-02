@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import Toolbar from '../components/Toolbar';
 import PageNavigation from '../components/PageNavigation';
@@ -141,10 +141,106 @@ const ColoringPage: React.FC = () => {
     const [activeRegionLabel, setActiveRegionLabel] = useState<string | null>(null);
     const svgWrapperRef = useRef<HTMLDivElement>(null);
 
+    /* ─── Freehand brush state ─── */
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const isDrawingRef = useRef(false);
+    const lastPosRef = useRef<{ x: number; y: number } | null>(null);
+
     const labels = useMemo(() => REGION_LABELS[pageId] || {}, [pageId]);
+
+    /* ─── Resize the freehand canvas to match the SVG wrapper ─── */
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const wrapper = svgWrapperRef.current;
+        if (!canvas || !wrapper) return;
+
+        const syncSize = () => {
+            const rect = wrapper.getBoundingClientRect();
+            // Use device pixel ratio for sharp lines
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = `${rect.width}px`;
+            canvas.style.height = `${rect.height}px`;
+            const ctx = canvas.getContext('2d');
+            if (ctx) ctx.scale(dpr, dpr);
+        };
+
+        syncSize();
+        const observer = new ResizeObserver(syncSize);
+        observer.observe(wrapper);
+        return () => observer.disconnect();
+    }, [pageId]);
+
+    /* ─── Clear the freehand canvas when changing pages or resetting ─── */
+    const clearBrushCanvas = useCallback(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const dpr = window.devicePixelRatio || 1;
+        ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+    }, []);
+
+    /* ─── Freehand drawing handlers ─── */
+    const getCanvasPos = useCallback((e: React.PointerEvent): { x: number; y: number } => {
+        const canvas = canvasRef.current!;
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+        };
+    }, []);
+
+    const handleCanvasPointerDown = useCallback(
+        (e: React.PointerEvent) => {
+            if (activeBrush !== 'brush') return;
+            isDrawingRef.current = true;
+            lastPosRef.current = getCanvasPos(e);
+            // Capture pointer for smoother drawing
+            (e.target as HTMLCanvasElement).setPointerCapture(e.pointerId);
+        },
+        [activeBrush, getCanvasPos]
+    );
+
+    const handleCanvasPointerMove = useCallback(
+        (e: React.PointerEvent) => {
+            if (!isDrawingRef.current || activeBrush !== 'brush') return;
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            const pos = getCanvasPos(e);
+            const last = lastPosRef.current;
+            if (!last) {
+                lastPosRef.current = pos;
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(last.x, last.y);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.strokeStyle = activeColor;
+            ctx.lineWidth = 6;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.stroke();
+            lastPosRef.current = pos;
+        },
+        [activeBrush, activeColor, getCanvasPos]
+    );
+
+    const handleCanvasPointerUp = useCallback(() => {
+        isDrawingRef.current = false;
+        lastPosRef.current = null;
+    }, []);
 
     const handleRegionClick = useCallback(
         (regionId: string) => {
+            // Don't fill regions when using the freehand brush
+            if (activeBrush === 'brush') return;
+
             // Update the label indicator
             const label = labels[regionId];
             if (label) setActiveRegionLabel(label);
@@ -212,7 +308,8 @@ const ColoringPage: React.FC = () => {
         setRegionColors({});
         setHistory([]);
         setActiveRegionLabel(null);
-    }, []);
+        clearBrushCanvas();
+    }, [clearBrushCanvas]);
 
     const handleExport = useCallback(() => {
         const wrapper = svgWrapperRef.current;
@@ -249,6 +346,19 @@ const ColoringPage: React.FC = () => {
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             URL.revokeObjectURL(url);
 
+            // Overlay the freehand brush strokes onto the export
+            const brushCanvas = canvasRef.current;
+            if (brushCanvas) {
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const scaleX = (svgW * scale) / wrapperRect.width;
+                const scaleY = (svgH * scale) / wrapperRect.height;
+                ctx.drawImage(
+                    brushCanvas,
+                    0, 0, brushCanvas.width, brushCanvas.height,
+                    0, 0, wrapperRect.width * scaleX, wrapperRect.height * scaleY
+                );
+            }
+
             const link = document.createElement('a');
             link.download = `${page?.title.toLowerCase().replace(/\s+/g, '-') || 'coloring'}-techtoons.png`;
             link.href = canvas.toDataURL('image/png');
@@ -265,6 +375,8 @@ const ColoringPage: React.FC = () => {
         return <Navigate to="/" replace />;
     }
 
+    const isBrushMode = activeBrush === 'brush';
+
     return (
         <div className="coloring-page">
             <div className="coloring-page__top">
@@ -277,6 +389,8 @@ const ColoringPage: React.FC = () => {
             <div className="coloring-page__region-label" aria-live="polite">
                 {activeRegionLabel ? (
                     <>🎨 You're coloring: <strong>{activeRegionLabel}</strong></>
+                ) : isBrushMode ? (
+                    <>✏️ Draw freely with your finger or stylus!</>
                 ) : (
                     <>👆 Tap a part to start coloring!</>
                 )}
@@ -284,7 +398,7 @@ const ColoringPage: React.FC = () => {
 
             <div className="coloring-page__canvas">
                 <div
-                    className="coloring-page__svg-wrapper"
+                    className={`coloring-page__svg-wrapper ${isBrushMode ? 'coloring-page__svg-wrapper--brush-mode' : ''}`}
                     ref={svgWrapperRef}
                     onPointerOver={handlePointerOver}
                     onPointerLeave={handlePointerLeave}
@@ -292,6 +406,15 @@ const ColoringPage: React.FC = () => {
                     <GraphicComponent
                         onRegionClick={handleRegionClick}
                         regionColors={regionColors}
+                    />
+                    {/* Freehand brush canvas overlay */}
+                    <canvas
+                        ref={canvasRef}
+                        className={`coloring-page__brush-canvas ${isBrushMode ? 'coloring-page__brush-canvas--active' : ''}`}
+                        onPointerDown={handleCanvasPointerDown}
+                        onPointerMove={handleCanvasPointerMove}
+                        onPointerUp={handleCanvasPointerUp}
+                        onPointerCancel={handleCanvasPointerUp}
                     />
                 </div>
             </div>

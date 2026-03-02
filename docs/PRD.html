@@ -455,7 +455,8 @@
                 Drone, VR Headset)</li>
             <li><span class="check">✅</span> Click-to-fill region painting with inline SVGs</li>
             <li><span class="check">✅</span> 16-color curated palette + full-spectrum custom picker</li>
-            <li><span class="check">✅</span> 3 brush tools: Paint Bucket, Eraser, Rainbow (random)</li>
+            <li><span class="check">✅</span> 4 brush tools: Paint Bucket (fill), Freehand Brush (draw with
+                finger/stylus), Eraser, Rainbow (random)</li>
             <li><span class="check">✅</span> 20-level undo stack + full reset</li>
             <li><span class="check">✅</span> Export to PNG (2× resolution)</li>
             <li><span class="check">✅</span> Responsive layout (desktop + mobile)</li>
@@ -481,6 +482,8 @@
                 blurbs so kids understand what they'll learn before clicking</li>
             <li><span class="check">✅</span> <strong>Guided Onboarding Prompt</strong> — Default state shows "👆 Tap a
                 part to start coloring!" to guide new users</li>
+            <li><span class="check">✅</span> <strong>Color Name Labels</strong> — Selected color displays its name
+                ("Red", "Teal", "Violet", etc.) next to the color preview for learning</li>
         </ul>
 
         <h3>Tech Stack</h3>
@@ -720,31 +723,41 @@
 
         <!-- 7. ARCHITECTURE -->
         <h2>7. Technical Architecture (Proposed)</h2>
+        <div class="note-box">
+            <strong>💡 Why Supabase?</strong> Supabase provides an all-in-one backend (PostgreSQL database,
+            authentication, file storage, edge functions) with a generous free tier (50K MAU, 500MB DB, 1GB storage).
+            This drastically reduces backend complexity and cost — ideal for a Kenya-first MVP where every KES counts.
+            For scale, Supabase Pro ($25/mo) handles the first 100K+ MAU before custom infrastructure is needed.
+        </div>
         <div class="arch">┌────────────────────────────────────────────────────┐
-            │ Client (Web/Mobile) │
+            │ Client (Web/Android) │
             │ React 19 + TypeScript + Vite │
             │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
             │ │ Coloring │ │ Auth │ │ Parent Dashboard │ │
-            │ │ Engine │ │ Flows │ │ + Analytics │ │
+            │ │ Engine │ │ (Phone#) │ │ + Analytics │ │
             │ └──────────┘ └──────────┘ └──────────────────┘ │
             └──────────────────┬─────────────────────────────────┘
-            │ HTTPS / REST + WebSocket
+            │ HTTPS / REST + Realtime
             ┌──────────────────▼─────────────────────────────────┐
-            │ API Layer │
-            │ Node.js + Express (or Next.js API Routes) │
+            │ Supabase (Backend-as-a-Service) │
             │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
-            │ │ Auth │ │ Content │ │ Subscription │ │
-            │ │ Service │ │ Service │ │ Service (Stripe) │ │
+            │ │ Auth │ │ Database │ │ Storage │ │
+            │ │ (Email, │ │(PostgreSQL│ │ (Exported │ │
+            │ │ Phone, │ │ Users, │ │ Artwork, SVGs) │ │
+            │ │ Google) │ │ Progress)│ │ │ │
             │ └──────────┘ └──────────┘ └──────────────────┘ │
+            │ ┌──────────┐ ┌──────────┐ │
+            │ │ Edge │ │ Realtime │ │
+            │ │ Functions│ │ (Sync) │ │
+            │ └──────────┘ └──────────┘ │
             └──────────────────┬─────────────────────────────────┘
             │
             ┌──────────────────▼─────────────────────────────────┐
-            │ Data Layer │
-            │ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
-            │ │PostgreSQL│ │ Redis │ │ S3 / Cloudflare │ │
-            │ │(Users, │ │(Cache, │ │ R2 (Exported │ │
-            │ │ Progress)│ │ Sessions)│ │ Artwork) │ │
-            │ └──────────┘ └──────────┘ └──────────────────┘ │
+            │ External Services │
+            │ ┌──────────────────┐ ┌──────────────────────────┐ │
+            │ │ M-Pesa (Daraja) │ │ Cloudflare CDN │ │
+            │ │ + Stripe Cards │ │ (Nairobi PoP) │ │
+            │ └──────────────────┘ └──────────────────────────┘ │
             └────────────────────────────────────────────────────┘</div>
 
         <hr>
@@ -803,38 +816,9 @@
         <h3>Cost Structure</h3>
         <div class="note-box">
             <strong>📋 Note:</strong> Detailed pricing and cost breakdown will be costed in collaboration with our
-            software development partner. Key cost categories are identified below.
+            software development partner. Key cost categories include: engineering, content creation, infrastructure,
+            marketing, legal/compliance, and payment processing fees.
         </div>
-        <table>
-            <tr>
-                <th>Category</th>
-                <th>Notes</th>
-            </tr>
-            <tr>
-                <td><strong>Engineering</strong></td>
-                <td>Full-stack + mobile development team</td>
-            </tr>
-            <tr>
-                <td><strong>Content Creation</strong></td>
-                <td>Illustrators + educational content writers</td>
-            </tr>
-            <tr>
-                <td><strong>Infrastructure</strong></td>
-                <td>Hosting, database, CDN</td>
-            </tr>
-            <tr>
-                <td><strong>Marketing</strong></td>
-                <td>Social media, school outreach, community building</td>
-            </tr>
-            <tr>
-                <td><strong>Legal / Compliance</strong></td>
-                <td>DPA 2019 counsel</td>
-            </tr>
-            <tr>
-                <td><strong>Payment Processing</strong></td>
-                <td>M-Pesa Daraja API + Stripe fees</td>
-            </tr>
-        </table>
 
         <hr>
 
