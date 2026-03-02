@@ -2,9 +2,10 @@
 
 **Product Name:** TechToons  
 **Version:** 1.1  
-**Date:** March 2, 2026  
+**Date:** February 23, 2026  
 **Author:** Product Team  
 **Status:** Updated — reflects v0.2 implementation  
+**Launch Market:** Kenya (East Africa)  
 
 ---
 
@@ -12,30 +13,33 @@
 
 TechToons is an interactive, browser-based coloring book that introduces children (ages 4–10) to technology concepts through creative play. Children color tech-themed illustrations — robots, circuit boards, AI brains, rockets, drones, and VR headsets — using intuitive digital tools, building familiarity with STEM imagery while exercising creativity.
 
-**Business Goal:** Transform the existing prototype into a commercially viable EdTech product that generates recurring revenue through a freemium subscription model, while establishing TechToons as a trusted brand at the intersection of children's creativity and early tech literacy.
+**Launch Market:** Kenya is chosen as the initial market due to its rapidly growing EdTech sector, high mobile internet penetration (~90% of internet access via mobile), a young population (over 40% under age 15), and the Kenyan government's emphasis on digital literacy through the CBC (Competency-Based Curriculum) framework.
+
+**Business Goal:** Transform the existing prototype into a commercially viable EdTech product targeting Kenyan families and schools, generating recurring revenue through an affordable freemium model priced for the Kenyan market, before expanding across East Africa and beyond.
 
 ---
 
 ## 2. Problem Statement
 
 ### The Gap
-Parents and educators seek engaging, screen-based activities that are both creative and educational. The existing market for children's digital coloring apps is fragmented:
+Kenyan parents and educators seek engaging, screen-based activities that are both creative and educational. With the rollout of Kenya's CBC curriculum emphasizing digital literacy and creative skills, the demand for locally relevant EdTech tools is surging:
 
-| Pain Point | Current State | TechToons Opportunity |
+| Pain Point | Kenya Context | TechToons Opportunity |
 |---|---|---|
-| **Screen guilt** | Most kids' apps are passive consumption | Active creation builds comfort |
-| **STEM exposure gap** | STEM learning starts too late (age 10+) | Introduces concepts at age 4–10 |
-| **Generic content** | Most coloring apps use animals/princesses | Tech-themed illustrations are unique |
-| **No learning link** | Coloring apps rarely educate | Each page can include factoids & mini-lessons |
-| **No progress tracking** | Parents can't see engagement data | Dashboard shows time, pages, and skills |
+| **Screen guilt** | Parents worry about passive screen time on phones | Active creation builds productive screen habits |
+| **STEM exposure gap** | CBC mandates digital literacy, but few engaging tools exist | Introduces tech concepts at age 4–10 through play |
+| **Costly alternatives** | Global apps (Toca Boca, ABCmouse) are priced for Western markets | Affordable pricing in KES via M-Pesa |
+| **Generic content** | Most coloring apps use Western-centric themes | Tech-themed illustrations with future local content |
+| **No progress tracking** | Parents and teachers can't see engagement data | Dashboard shows time, pages, and skills |
+| **Connectivity gaps** | Many areas have intermittent internet | Lightweight SVGs work on low-bandwidth connections |
 
 ### Target Users
 
 | Persona | Description | Needs |
 |---|---|---|
-| **Kids (4–10)** | Primary users who color | Fun, intuitive, rewarding experience |
-| **Parents** | Decision-makers who pay | Safe, educational, ad-free, progress visibility |
-| **Educators** | Classroom adoption | Curriculum-aligned activities, class management |
+| **Kids (4–10)** | Kenyan primary school children (Grade 1–5) | Fun, intuitive, rewarding experience on any device |
+| **Parents** | Urban & peri-urban Kenyan parents with smartphones | Affordable, educational, ad-free, M-Pesa payment |
+| **Educators** | CBC teachers in Kenyan primary schools | CBC-aligned activities, class management, works on school devices |
 
 ---
 
@@ -48,13 +52,13 @@ Parents and educators seek engaging, screen-based activities that are both creat
 
 | Metric | Target | Measurement |
 |---|---|---|
-| Monthly Active Users (MAU) | 50,000 | Analytics |
-| Free → Paid Conversion | 5% | Subscription data |
-| Monthly Recurring Revenue (MRR) | $12,500 | Stripe dashboard |
+| Monthly Active Users (MAU) | 30,000 (Kenya) | Analytics |
+| Free → Paid Conversion | 4% | Subscription data |
+| Monthly Recurring Revenue (MRR) | KES 600,000 (~$4,600) | M-Pesa / Stripe dashboard |
 | Average Session Duration | 8+ minutes | Analytics |
-| App Store Rating | 4.5+ stars | Store reviews |
-| Educator Accounts | 500 | Admin dashboard |
-| Pages Colored (total) | 1,000,000 | Event tracking |
+| Google Play Rating | 4.5+ stars | Play Store reviews |
+| Kenyan Schools Onboarded | 200 | Admin dashboard |
+| Pages Colored (total) | 500,000 | Event tracking |
 
 ---
 
@@ -99,7 +103,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 |---|---|
 | **Priority** | P0 — Must Have |
 | **Description** | Parents create accounts; children have sub-profiles under a parent account |
-| **Requirements** | - Email/password + Google/Apple OAuth sign-up<br>- Up to 4 child profiles per parent account<br>- Each child profile has name, avatar, age<br>- Child profiles have independent saved progress<br>- COPPA-compliant data collection (parental consent flow) |
+| **Requirements** | - Email/password + Google OAuth sign-up<br>- Phone number sign-up (common in Kenya)<br>- Up to 4 child profiles per parent account<br>- Each child profile has name, avatar, age<br>- Child profiles have independent saved progress<br>- Kenya Data Protection Act (DPA 2019) compliant data collection |
 | **Acceptance Criteria** | Parent can create account, add child profiles, and switch between them |
 
 #### FR-2: Cloud Save & Progress Persistence
@@ -122,10 +126,10 @@ The current build demonstrates core viability plus kid-friendly UX:
 | Field | Detail |
 |---|---|
 | **Priority** | P0 — Must Have |
-| **Description** | Monetize through tiered subscription plans |
-| **Plans** | **Free Tier:** 3 coloring pages, basic tools, no save/export<br>**TechToons Plus ($4.99/mo):** All pages, all tools, cloud save, PNG export, no ads<br>**TechToons Classroom ($9.99/mo):** Plus features + class management, up to 30 students, progress reports |
-| **Requirements** | - Stripe integration for payments<br>- Apple/Google in-app purchase for mobile<br>- 7-day free trial for Plus<br>- Annual discount (2 months free) |
-| **Acceptance Criteria** | User can subscribe, access gated content, and manage subscription |
+| **Description** | Monetize through tiered subscription plans priced for the Kenyan market |
+| **Plans** | **Free Tier:** 3 coloring pages, basic tools, no save/export<br>**TechToons Plus (KES 250/mo ~ $1.99):** All pages, all tools, cloud save, PNG export, no ads<br>**TechToons Classroom (KES 500/mo ~ $3.99):** Plus features + class management, up to 30 students, progress reports |
+| **Requirements** | - **M-Pesa integration** via Daraja API (primary payment in Kenya)<br>- Stripe for card payments<br>- Google Play in-app purchase for mobile<br>- 7-day free trial for Plus<br>- Annual discount (2 months free) |
+| **Acceptance Criteria** | User can subscribe via M-Pesa or card, access gated content, and manage subscription |
 
 ---
 
@@ -182,7 +186,7 @@ The current build demonstrates core viability plus kid-friendly UX:
 |---|---|
 | **Priority** | P1 — Should Have |
 | **Description** | Tools for teachers to use TechToons in classroom settings |
-| **Requirements** | - Class creation with join codes<br>- Assign specific pages as "homework"<br>- View class-wide progress and individual reports<br>- Curriculum alignment tags (Next Gen Science Standards)<br>- Bulk student account creation via CSV |
+| **Requirements** | - Class creation with join codes<br>- Assign specific pages as "homework"<br>- View class-wide progress and individual reports<br>- Curriculum alignment tags (Kenya CBC — Digital Literacy strand)<br>- Bulk student account creation via CSV |
 | **Acceptance Criteria** | Teacher creates class, assigns page, views class progress report |
 
 #### FR-11: Printable Worksheets
@@ -207,14 +211,14 @@ The current build demonstrates core viability plus kid-friendly UX:
 
 | Requirement | Specification |
 |---|---|
-| **Performance** | First Contentful Paint < 1.5s; SVG coloring interaction < 50ms response |
+| **Performance** | First Contentful Paint < 1.5s on 3G; SVG coloring interaction < 50ms; optimized for low-bandwidth Kenyan connections |
 | **Accessibility** | WCAG 2.1 AA compliance; keyboard navigation; screen reader support for UI controls |
-| **Security** | COPPA compliance; encrypted data at rest and in transit; SOC 2 Type II (by Month 12) |
-| **Privacy** | No third-party tracking for child accounts; GDPR data deletion on request |
-| **Scalability** | Support 100K concurrent users; CDN-served static assets |
-| **Browser Support** | Chrome 90+, Safari 15+, Firefox 100+, Edge 90+ |
+| **Security** | Kenya Data Protection Act (DPA 2019) compliance; encrypted data at rest and in transit |
+| **Privacy** | No third-party tracking for child accounts; GDPR/DPA data deletion on request |
+| **Scalability** | Support 50K concurrent users; CDN-served static assets (Cloudflare with Nairobi PoP) |
+| **Browser Support** | Chrome 90+ (dominant in Kenya), Samsung Internet, Firefox 100+, Edge 90+ |
 | **Uptime** | 99.9% availability SLA |
-| **Internationalization** | i18n framework in place; launch with English, Spanish, French |
+| **Internationalization** | i18n framework in place; launch with English, then Swahili; future: French (for East Africa expansion) |
 
 ---
 
@@ -257,57 +261,61 @@ The current build demonstrates core viability plus kid-friendly UX:
 
 | Stream | Model | Projected Year 1 |
 |---|---|---|
-| **TechToons Plus** | $4.99/mo per family | $120,000 |
-| **TechToons Classroom** | $9.99/mo per educator | $60,000 |
+| **TechToons Plus** | KES 250/mo (~$1.99) per family | KES 3.6M (~$28,000) |
+| **TechToons Classroom** | KES 500/mo (~$3.99) per school | KES 1.2M (~$9,500) |
 | **Printable Worksheets** | Included in Plus | — (retention driver) |
-| **Partner Embeds** | Rev-share per active user | $15,000 |
-| **Branded Content Packs** | Sponsored collections (e.g., NASA, Google) | $30,000 |
-| | **Projected Total** | **$225,000** |
+| **NGO/Govt Partnerships** | Sponsored deployments (e.g., Safaricom Foundation, KICD) | KES 1.5M (~$11,500) |
+| **Branded Content Packs** | Sponsored collections (e.g., Safaricom, M-Pesa, Konza Technopolis) | KES 1M (~$7,700) |
+| | **Projected Total** | **KES 7.3M (~$56,700)** |
 
 ### Pricing Justification
-- Competitors (Toca Boca, Sago Mini) charge $3.99–$7.99/mo
-- TechToons differentiates on the STEM angle and learning features
-- Classroom pricing is well below competitors like ABCmouse ($12.99/mo)
+- Priced for Kenyan families: KES 250/mo is below the cost of a single meal at KFC (KES ~600)
+- Global competitors (Toca Boca at KES 650/mo, ABCmouse at KES 1,700/mo) are unaffordable for most Kenyan families
+- **M-Pesa** is the primary payment method — frictionless for 90%+ of Kenyan adults
+- Classroom pricing allows schools to fund from per-learner capitation grants (KES 1,420/pupil/yr)
 
 ---
 
 ## 9. Competitive Analysis
 
-| Feature | TechToons | Toca Boca | Sago Mini | ABCmouse |
-|---|---|---|---|---|
-| **Tech/STEM Theme** | ✅ Unique | ❌ | ❌ | Partial |
-| **Coloring + Learning** | ✅ | ❌ | ❌ | ✅ |
-| **Web-Based (No Install)** | ✅ | ❌ | ❌ | ✅ |
-| **Classroom Tools** | ✅ | ❌ | ❌ | ✅ |
-| **Price** | $4.99/mo | $4.99/mo | $3.99/mo | $12.99/mo |
-| **Target Age** | 4–10 | 3–9 | 2–5 | 2–8 |
-| **Export Artwork** | ✅ | ❌ | ❌ | ❌ |
-| **Parent Dashboard** | ✅ | ❌ | ❌ | ✅ |
+| Feature | TechToons | Toca Boca | Kytabu | Eneza Education | eLimu |
+|---|---|---|---|---|---|
+| **Tech/STEM Theme** | ✅ Unique | ❌ | ❌ | Partial | Partial |
+| **Coloring + Learning** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Web-Based (No Install)** | ✅ | ❌ | ✅ | ✅ (USSD+Web) | ✅ |
+| **CBC Alignment** | ✅ | ❌ | ✅ | ✅ | ✅ |
+| **M-Pesa Payment** | ✅ | ❌ | ✅ | ✅ | ✅ |
+| **Price (KES/mo)** | KES 250 | KES 650 | KES 200 | KES 10/day | KES 300 |
+| **Target Age** | 4–10 | 3–9 | 6–18 | 6–18 | 3–12 |
+| **Export Artwork** | ✅ | ❌ | ❌ | ❌ | ❌ |
 
-**Competitive Moat:** TechToons is the only product that combines creative coloring with tech-specific STEM learning for the 4–10 age group, available both on the web and as a native app.
+**Competitive Moat:** TechToons is the only Kenyan product combining creative coloring with tech-specific STEM learning. Local competitors (Kytabu, Eneza, eLimu) focus on text-based subject tutoring — none offer a creative, interactive art experience. Global competitors (Toca Boca) are priced out of the Kenyan market and lack CBC alignment.
 
 ---
 
 ## 10. Go-To-Market Strategy
 
-### Launch Plan
+### Launch Plan (Kenya-First)
 
 | Phase | Timeline | Activities |
 |---|---|---|
-| **Soft Launch** | Month 3 | Launch web app with free tier; onboard 20 beta parents |
-| **Content Marketing** | Month 3–4 | Blog posts: "Why STEM Starts with Crayons"; social media |
-| **Product Hunt Launch** | Month 4 | Product Hunt + Hacker News debut |
-| **Education Outreach** | Month 5–6 | Partner with 10 schools for pilot; submit to Common Sense Media |
-| **Mobile Launch** | Month 8 | iOS + Android app store submissions |
-| **Scale** | Month 9–12 | Paid acquisition (Facebook/Instagram parents); YouTube Kids ads |
+| **Soft Launch (Nairobi)** | Month 3 | Launch web app with free tier; onboard 20 beta parents in Nairobi |
+| **School Pilots** | Month 3–4 | Partner with 5 Nairobi primary schools; align with CBC Digital Literacy strand |
+| **Social Media Push** | Month 4–5 | TikTok/Instagram Reels in Kenya; WhatsApp group outreach to parent communities |
+| **M-Pesa Integration** | Month 5 | Enable M-Pesa payments for Plus subscriptions |
+| **Education Outreach** | Month 5–6 | Present at KICD curriculum workshops; partner with Kenya Education Network (KENET) |
+| **Google Play Launch** | Month 7 | Android app (most Kenyan devices); Google Play Family category |
+| **County Expansion** | Month 8–10 | Expand to Mombasa, Kisumu, Nakuru, Eldoret |
+| **East Africa Scale** | Month 11–12 | Launch in Uganda, Tanzania, Rwanda |
 
 ### Distribution Channels
 
-1. **Organic Search** — SEO for "kids coloring app", "STEM activities for kids"
-2. **Social Media** — Instagram/TikTok content showing kids coloring tech illustrations
-3. **Education Networks** — Teachers Pay Teachers, Common Sense Media, school newsletters
-4. **App Stores** — iOS App Store (Kids category), Google Play (Family)
-5. **Partnerships** — STEM organizations, children's museums, libraries
+1. **Google Play Store** — Android dominates Kenya (95%+ mobile market share); Family category
+2. **WhatsApp & Social Media** — WhatsApp groups are the primary parent community channel in Kenya; TikTok/Instagram for awareness
+3. **School Partnerships** — Direct outreach to CBC-implementing schools; training for Digital Literacy teachers
+4. **Safaricom/M-Pesa Ecosystem** — Explore M-Pesa Mini-Apps and Safaricom app store placement
+5. **Education Organizations** — Kenya Institute of Curriculum Development (KICD), KENET, UNESCO Nairobi
+6. **Organic Search** — SEO for "CBC digital literacy games Kenya", "kids STEM activities Nairobi"
 
 ---
 
@@ -345,12 +353,13 @@ The current build demonstrates core viability plus kid-friendly UX:
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| **COPPA compliance failure** | Medium | Critical | Engage specialized legal counsel; use COPPA-certified vendor (e.g., SuperAwesome) |
-| **Low conversion rate** | Medium | High | Strong free tier that hooks users; A/B test paywall placement |
-| **Content creation bottleneck** | Medium | Medium | Create SVG illustration pipeline; hire freelance illustrators |
-| **App Store rejection** | Low | High | Follow Apple/Google Kids category guidelines from day 1 |
-| **Competitor copies STEM angle** | Medium | Medium | First-mover advantage; build brand loyalty; protect through quality |
-| **Teacher adoption is slow** | Medium | Medium | Offer free Classroom tier for first 100 schools; attend EdTech conferences |
+| **Kenya DPA 2019 compliance** | Medium | Critical | Engage Kenyan legal counsel; data stored in Africa-region servers |
+| **Low conversion / willingness to pay** | High | High | Strong free tier; KES 250 pricing validated against ARPU benchmarks; M-Pesa removes friction |
+| **Internet connectivity gaps** | Medium | Medium | Lightweight SVGs (~7KB each); service worker caching for offline use |
+| **Content creation bottleneck** | Medium | Medium | SVG illustration pipeline; hire Kenyan freelance illustrators via platforms like Brighter Monday |
+| **Device fragmentation** | Medium | Medium | Test on low-end Android devices common in Kenya (Tecno, Infinix, Samsung A-series) |
+| **School IT infrastructure** | Medium | Medium | Web-based (no install needed); works on Chromebooks and shared school tablets |
+| **Competitor copies STEM angle** | Low | Medium | First-mover advantage in Kenya's creative EdTech space |
 
 ---
 
@@ -386,13 +395,18 @@ Month 7–12 ░░░░░░░▓▓▓▓▓  Phase 3: Scale
 | **Region** | An individual SVG path element that can be filled with color |
 | **Collection** | A themed group of 5 coloring pages |
 | **Streak** | Consecutive days a child uses the app |
-| **COPPA** | Children's Online Privacy Protection Act (U.S. federal law) |
+| **CBC** | Competency-Based Curriculum — Kenya's national education framework (2017+) |
+| **DPA 2019** | Kenya Data Protection Act — governs collection of personal data including children's |
+| **M-Pesa** | Mobile money platform by Safaricom, used by 90%+ of Kenyan adults |
+| **KICD** | Kenya Institute of Curriculum Development — the body overseeing CBC implementation |
+| **KES** | Kenyan Shilling (1 USD ≈ 129 KES as of Feb 2026) |
 
 ### B. Open Questions
-1. Should we support real-time collaborative coloring (e.g., two kids working on the same page)?
-2. What age verification method is sufficient for COPPA compliance?
-3. Should we pursue Apple's Kids category (stricter rules) or standard App Store listing?
-4. Do we want a freemium model or a one-time purchase for the mobile app?
+1. Should we add Swahili translations from launch or wait for user demand data?
+2. Can we integrate with the government's Digital Literacy Programme (DLP) devices in schools?
+3. Should we partner with Safaricom Foundation for a sponsored free tier in rural schools?
+4. What's the optimal M-Pesa payment interval — monthly or weekly (e.g., KES 65/week for lower commitment)?
+5. Should we include Kenya-specific illustrations (e.g., matatu, Kenya satellite, M-Pesa phone) in future collections?
 
 ---
 

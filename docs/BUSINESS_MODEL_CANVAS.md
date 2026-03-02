@@ -1,28 +1,28 @@
-# TechToons — Business Model Canvas
+# TechToons — Business Model Canvas (Kenya Market)
 
 ---
 
 ## 🤝 Key Partners
-- **Freelance illustrators** — SVG illustration pipeline for new collections
-- **Education advisors** — Fact-checking & curriculum alignment (NGSS)
-- **STEM organizations** — NASA, Code.org, Girls Who Code for branded content packs
-- **Children's museums & libraries** — Distribution & credibility
-- **COPPA compliance vendor** — SuperAwesome / kidAware for certified data handling
-- **Stripe / Apple / Google** — Payment processing
+- **Kenyan freelance illustrators** — SVG illustration pipeline (Brighter Monday, Upwork Kenya)
+- **Kenya Institute of Curriculum Development (KICD)** — CBC alignment & endorsement
+- **Safaricom** — M-Pesa Daraja API integration; potential Safaricom Foundation sponsorship
+- **Kenya Education Network (KENET)** — Distribution to schools
+- **Local STEM orgs** — iHub, Moringa School, AkiraChix for community reach
+- **Data protection counsel** — Kenya DPA 2019 compliance
 
 ---
 
 ## 🔑 Key Activities
-- Designing & producing new tech-themed SVG coloring pages
-- Developing and maintaining the web + mobile platform
-- Curating age-appropriate STEM learning content ("Did You Know?" sidebars)
-- User acquisition through content marketing, SEO, and education partnerships
-- Monitoring child safety, content moderation, and COPPA compliance
+- Designing & producing new tech-themed SVG coloring pages (including future Kenya-specific content)
+- Developing and maintaining the web + Android platform
+- Curating age-appropriate STEM learning content aligned with CBC Digital Literacy strand
+- User acquisition through WhatsApp groups, school partnerships, and social media
+- Ensuring Kenya DPA 2019 compliance and child safety
 
 ---
 
 ## 🏗️ Key Resources
-- React/TypeScript web application (existing prototype)
+- React/TypeScript web application (existing v0.2 prototype)
 - Library of 6 SVG coloring pages (expandable)
 - Design system (Fredoka + Nunito, teal/coral palette)
 - Brand identity: "TechToons" — kid-friendly, STEM-forward
@@ -35,20 +35,21 @@
 
 ### For Kids
 > "Color robots, rockets, and circuits — and learn how they work!"
-- Fun, intuitive coloring experience
+- Fun, intuitive coloring experience on any device
 - Earn badges and stickers for completing pages
 - Learn cool tech facts while creating art
 
-### For Parents
-> "Creative screen time that actually teaches your child about technology."
+### For Kenyan Parents
+> "Creative screen time that actually teaches your child about technology — for KES 250/mo."
 - No ads, no data tracking on child accounts
 - Parent dashboard with engagement & learning progress
-- Screen time limits built in
+- Pay easily with M-Pesa — no foreign card needed
 
-### For Educators
-> "STEM meets art — bring tech literacy into your classroom."
-- Curriculum-aligned coloring activities
+### For Kenyan Educators
+> "CBC meets creativity — bring Digital Literacy to life in your classroom."
+- CBC-aligned coloring activities (Digital Literacy strand)
 - Class management & progress reports
+- Web-based: works on Chromebooks and shared school tablets
 - Printable worksheets for device-free sessions
 
 ---
@@ -57,20 +58,21 @@
 
 | Segment | Size (Addressable) | Revenue Potential |
 |---|---|---|
-| **U.S. parents (kids 4–10)** | ~24M households | Primary — Plus subscriptions |
-| **K–5 teachers (U.S.)** | ~1.7M | Secondary — Classroom subscriptions |
-| **International parents** | ~100M+ households | Expansion — localized content |
-| **STEM orgs & brands** | Dozens | Ancillary — branded content partnerships |
+| **Kenyan parents (kids 4–10)** | ~5M households | Primary — Plus subscriptions (KES 250/mo) |
+| **CBC teachers (Grade 1–5)** | ~300K | Secondary — Classroom subscriptions (KES 500/mo) |
+| **East Africa expansion** (Uganda, Tanzania, Rwanda) | ~15M households | Growth — localized content |
+| **Kenyan STEM orgs & corporates** | Dozens | Ancillary — branded/sponsored content |
 
 ---
 
 ## 📣 Channels
-1. **Organic search** — SEO for "kids STEM coloring", "tech activities for kids"
-2. **Social media** — Instagram Reels / TikTok showing kids coloring tech art
-3. **Education marketplaces** — Teachers Pay Teachers, Common Sense Media
-4. **App stores** — iOS Kids category, Google Play Family
-5. **Partnerships** — School newsletters, children's museum gift shops
-6. **Content marketing** — Blog: "Why STEM Starts With Crayons"
+1. **Google Play Store** — Android (95%+ market share in Kenya); Family category
+2. **WhatsApp groups** — Primary parent community channel in Kenya
+3. **School partnerships** — Direct outreach to CBC-implementing schools
+4. **Social media** — TikTok/Instagram Reels, Facebook parenting groups
+5. **Safaricom ecosystem** — M-Pesa Mini-Apps, Safaricom app store
+6. **Education orgs** — KICD, KENET, UNESCO Nairobi
+7. **Organic search** — SEO for "CBC digital literacy games Kenya", "kids STEM activities"
 
 ---
 
@@ -78,41 +80,43 @@
 
 | Stream | Price | Model |
 |---|---|---|
-| **TechToons Plus** | $4.99/mo or $49.99/yr | Family subscription |
-| **TechToons Classroom** | $9.99/mo or $99.99/yr | Educator subscription |
-| **Branded Content Packs** | $5k–$30k per partnership | B2B sponsorship |
-| **Partner Embeds** | Rev-share per active user | API/widget licensing |
+| **TechToons Plus** | KES 250/mo or KES 2,500/yr (~$19.50) | Family subscription via M-Pesa |
+| **TechToons Classroom** | KES 500/mo or KES 5,000/yr (~$39) | School subscription |
+| **NGO/Govt Sponsorships** | KES 500K–1.5M per deal | Safaricom Foundation, USAID, World Bank EdTech |
+| **Branded Content Packs** | KES 200K–1M per partnership | Corporate sponsorship (Safaricom, Equity Bank) |
 
-**Year 1 projected revenue:** $225,000
+**Year 1 projected revenue:** KES 7.3M (~$56,700)
 
 ---
 
 ## 🏷️ Cost Structure
 
-| Category | Monthly Estimate | Notes |
+| Category | Monthly Estimate (KES) | Notes |
 |---|---|---|
-| **Engineering** (2 devs) | $16,000 | Full-stack + mobile |
-| **Content** (illustrator + writer) | $5,000 | Contract-based |
-| **Infrastructure** (Vercel, DB, storage) | $500 | Scales with usage |
-| **Marketing** | $3,000 | Paid ads + content |
-| **Legal / Compliance** | $1,500 | COPPA counsel |
-| **Payment processing** | ~3% of revenue | Stripe/Apple/Google fees |
-| **Total** | **~$26,000/mo** | |
+| **Engineering** (2 devs, Nairobi-based) | KES 400,000 | Full-stack + mobile |
+| **Content** (illustrator + writer) | KES 100,000 | Kenyan freelancers |
+| **Infrastructure** (Vercel, DB, CDN) | KES 10,000 | Scales with usage |
+| **Marketing** | KES 80,000 | Social media ads + school outreach |
+| **Legal / Compliance** | KES 30,000 | DPA 2019 counsel |
+| **M-Pesa transaction fees** | ~1.5% of revenue | Daraja API fees |
+| **Total** | **~KES 620,000/mo (~$4,800)** | |
 
 ---
 
 ## 🌊 Customer Relationships
 - **Self-service** — Web/mobile sign-up with guided onboarding
-- **Automated** — Weekly parent email summaries, streak reminders
+- **WhatsApp support** — Primary support channel (WhatsApp Business API)
+- **Automated** — Weekly parent email/SMS summaries, streak reminders
 - **Community** — Moderated gallery where kids share artwork
-- **Support** — Email support + FAQ/help center
-- **Education** — Dedicated onboarding for schools, webinar demos
+- **Education** — Dedicated school onboarding, teacher training workshops
 
 ---
 
 ## 🏆 Unfair Advantages
-1. **First mover** in tech-themed coloring + STEM learning for young kids
-2. **Web-first** — no install required; instant access for classrooms
-3. **Export capability** — kids can download and print their art (competitors can't)
-4. **Dual value** — creative play *and* educational content in a single product
-5. **Low CAC for educators** — teachers share with other teachers organically
+1. **First mover** in creative STEM coloring for Kenyan/East African kids
+2. **Web-first** — no install required; instant access on low-end devices and school Chromebooks
+3. **M-Pesa native** — frictionless payment for 90%+ of Kenyan households
+4. **CBC-aligned** — positioned as a Digital Literacy curriculum supplement
+5. **Affordable** — KES 250/mo undercuts all global competitors
+6. **Export capability** — kids can download and share art via WhatsApp (competitors can't)
+7. **Low-bandwidth optimized** — lightweight SVGs (~7KB) work even on 3G connections
