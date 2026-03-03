@@ -311,17 +311,19 @@
 
         <!-- 1. EXECUTIVE SUMMARY -->
         <h2>1. Executive Summary</h2>
-        <p>TechToons is an interactive, browser-based coloring book that introduces children (ages 4–10) to technology
-            concepts through creative play. Children color tech-themed illustrations — robots, circuit boards, AI
-            brains, rockets, drones, and VR headsets — using intuitive digital tools, building familiarity with STEM
-            imagery while exercising creativity.</p>
+        <p>TechToons is an interactive, browser-based coloring platform for <strong>all ages</strong> — from young
+            children discovering technology to teenagers and adults who simply love to create. Users color beautiful
+            illustrations across multiple themed categories — Technology, Food, Architecture, Nature, Fashion, Wildlife,
+            and more — using intuitive digital tools. The platform is educational by design but fun for everyone.</p>
         <p><strong>Launch Market:</strong> Kenya is chosen as the initial market due to its rapidly growing EdTech
             sector, high mobile internet penetration (~90% of internet access via mobile), a young population (over 40%
             under age 15), and the Kenyan government's emphasis on digital literacy through the CBC (Competency-Based
-            Curriculum) framework.</p>
-        <p><strong>Business Goal:</strong> Transform the existing prototype into a commercially viable EdTech product
-            targeting Kenyan families and schools, generating recurring revenue through an affordable freemium model
-            priced for the Kenyan market, before expanding across East Africa and beyond.</p>
+            Curriculum) framework. Content, pricing, and payment methods are localized for the Kenyan context from day
+            one.</p>
+        <p><strong>Business Goal:</strong> Build a Pinterest-style creative coloring platform that is loved by kids,
+            teenagers, and adults alike — organized by content categories, driven by community, and monetized through an
+            affordable freemium model priced for the Kenyan market, before expanding across East Africa and globally.
+        </p>
 
         <hr>
 
@@ -377,14 +379,24 @@
                 <th>Needs</th>
             </tr>
             <tr>
-                <td><strong>Kids (4–10)</strong></td>
+                <td><strong>Young Children (4–10)</strong></td>
                 <td>Kenyan primary school children (Grade 1–5)</td>
                 <td>Fun, intuitive, rewarding experience on any device</td>
             </tr>
             <tr>
+                <td><strong>Teens (11–17)</strong></td>
+                <td>Secondary school students and creatively driven older kids</td>
+                <td>More complex illustrations, social features, expressive freedom</td>
+            </tr>
+            <tr>
+                <td><strong>General Users (18+)</strong></td>
+                <td>Adults who enjoy coloring, mindfulness art, or creative expression</td>
+                <td>Wide content categories, clean UI, relaxing experience</td>
+            </tr>
+            <tr>
                 <td><strong>Parents</strong></td>
                 <td>Urban &amp; peri-urban Kenyan parents with smartphones</td>
-                <td>Affordable, educational, ad-free, M-Pesa payment</td>
+                <td>Affordable, educational, ad-free, M-Pesa payment, child safety</td>
             </tr>
             <tr>
                 <td><strong>Educators</strong></td>
@@ -397,7 +409,23 @@
 
         <!-- 3. VISION & METRICS -->
         <h2>3. Product Vision &amp; Success Metrics</h2>
-        <blockquote>"Make every child's first interaction with technology a creative one."</blockquote>
+        <h3>Vision Statement</h3>
+        <blockquote>"Be the world's most joyful creative coloring platform — where children discover technology, teens
+            express themselves, and adults find calm."</blockquote>
+
+        <h3>Platform Direction</h3>
+        <p>TechToons is evolving from a kids' tech coloring book into a <strong>Pinterest-style creative hub</strong>
+            organized around content categories. Think of it as a coloring-first creative platform where:</p>
+        <ul>
+            <li><strong>Content is organized by category</strong> — Technology, Food, Architecture, Nature, Fashion,
+                Wildlife, Travel, Patterns, and more</li>
+            <li><strong>Users choose their profile type</strong> — Child, Teen, Adult/General, or Parent — which
+                personalizes the content, difficulty, and UI they see</li>
+            <li><strong>Community drives discovery</strong> — users browse, save, and share colored works within a
+                moderated gallery</li>
+            <li><strong>AI enhances the experience</strong> — smart feedback, scoring, and personalized recommendations
+            </li>
+        </ul>
 
         <h3>Key Results (12-month targets)</h3>
         <table>
@@ -500,7 +528,14 @@
         <h2>5. Feature Requirements</h2>
 
         <h3>5.1 Phase 1 — Foundation (Months 1–3)</h3>
-        <p><em>Goal: Transform prototype into a launchable product</em></p>
+        <p><em>Goal: Transform prototype into a fully launchable, intuitive product for all ages</em></p>
+
+        <div class="note-box">
+            <strong>Month 1 Priority: Interface Intuitiveness.</strong> Before anything else, the interface will be
+            redesigned to be immediately understandable to any user — a 5-year-old child OR a 40-year-old adult. This
+            includes: onboarding flow, profile setup, cleaner navigation, improved toolbar affordances for touch, and
+            responsive layout improvements.
+        </div>
 
         <div class="feature-card">
             <h4>FR-1: User Accounts &amp; Authentication <span class="priority-tag p0">P0 — Must Have</span></h4>
@@ -562,11 +597,90 @@
                 manage subscription</p>
         </div>
 
-        <h3>5.2 Phase 2 — Engagement &amp; Learning (Months 4–6)</h3>
-        <p><em>Goal: Increase retention and add educational value</em></p>
+        <div class="feature-card">
+            <h4>FR-5: User Profile Types <span class="priority-tag p0">P0 — Must Have</span></h4>
+            <p>Users choose a profile type at sign-up which personalizes their entire experience — content
+                recommendations, UI complexity, difficulty levels, and messaging.</p>
+            <ul>
+                <li><strong>Child (4–10):</strong> Big buttons, friendly language, curated safe content, parental
+                    controls active</li>
+                <li><strong>Teen (11–17):</strong> Full tools, social features, more complex illustrations, expressive
+                    themes</li>
+                <li><strong>Adult/General (18+):</strong> Clean minimal UI, wide content library, mindfulness/relaxation
+                    mode, all categories accessible</li>
+                <li><strong>Parent:</strong> Can manage child profiles, view dashboards, set limits, and access their
+                    own
+                    coloring too</li>
+                <li><strong>Educator:</strong> Classroom tools, CBC alignment, class management, bulk accounts</li>
+            </ul>
+            <p><strong>Requirements:</strong><br>
+                - Profile type selected during onboarding with friendly visual picker<br>
+                - Can be changed later in settings<br>
+                - Profile type adjusts: home page layout, recommended categories, illustration difficulty, and language
+                tone<br>
+                - Parent profile can create and manage up to 4 child/teen sub-profiles</p>
+            <p><strong>Acceptance Criteria:</strong> Selecting "Child" shows kid-friendly UI with large controls;
+                selecting "Adult" shows clean minimal layout with all categories visible</p>
+        </div>
 
         <div class="feature-card">
-            <h4>FR-5: Learning Sidebars ("Did You Know?") <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-6: Pinterest-Style Content Categories <span class="priority-tag p0">P0 — Must Have</span></h4>
+            <p>The home page is organized as a Pinterest-style browsable grid of content categories — users explore by
+                theme rather than scrolling a flat list.</p>
+            <ul>
+                <li>🖥️ <strong>Technology</strong> — Robots, circuits, AI, VR, rockets, drones (existing content)</li>
+                <li>🍕 <strong>Food &amp; Drinks</strong> — Fruits, meals, street food, Kenyan cuisines</li>
+                <li>🏠 <strong>Architecture &amp; Housing</strong> — Buildings, tiny homes, futuristic cities</li>
+                <li>🌿 <strong>Nature &amp; Wildlife</strong> — Animals, forests, Kenyan wildlife (lions, elephants)
+                </li>
+                <li>👗 <strong>Fashion &amp; Style</strong> — Clothing, accessories, African prints</li>
+                <li>🎨 <strong>Abstract &amp; Patterns</strong> — Geometric patterns, mandalas, Batik designs</li>
+                <li>✈️ <strong>Travel &amp; Adventure</strong> — Landmarks, maps, Kenyan landscapes</li>
+                <li>💪 <strong>Sports &amp; Fitness</strong> — Football, athletics, olympics</li>
+            </ul>
+            <p><strong>Requirements:</strong><br>
+                - Home page shows category cards with thumbnail previews<br>
+                - Users can "follow" categories to personalize their feed<br>
+                - Each category has a dedicated page with all illustrations in that theme<br>
+                - Search within categories by name or tag<br>
+                - Free users see all category previews but 3-page coloring limit still applies<br>
+                - New categories added quarterly based on user demand data</p>
+            <p><strong>Acceptance Criteria:</strong> Home page shows category grid; clicking "Food" shows food
+                illustrations; search finds pages by name</p>
+        </div>
+
+        <h3>5.2 Phase 2 — Engagement &amp; Learning (Months 4–6)</h3>
+        <p><em>Goal: Increase retention, add educational value, and integrate AI</em></p>
+
+        <div class="feature-card">
+            <h4>FR-7: AI Integration — Smart Feedback, Scoring &amp; Recommendations <span class="priority-tag p1">P1 —
+                    Should Have</span></h4>
+            <p>AI-powered system that enhances the coloring experience with intelligent feedback, personalized scoring,
+                and content recommendations.</p>
+            <ul>
+                <li><strong>Boundary Guidance:</strong> Real-time detection when brush strokes go outside region lines —
+                    friendly toast alert "Oops! Try coloring inside the lines 🎯"</li>
+                <li><strong>AI Scoring:</strong> Stars out of 5 based on coverage, neatness, creativity, and
+                    completeness</li>
+                <li><strong>Encouragement Prompts:</strong> Age-appropriate suggestions like "The rocket's nose cone is
+                    still white — try coloring it!"</li>
+                <li><strong>Category Recommendations:</strong> AI recommends next pages to color based on what user has
+                    colored</li>
+                <li><strong>Style Suggestions:</strong> For teens and adults — "Try a warm palette for this food
+                    illustration!"</li>
+            </ul>
+            <p><strong>Requirements:</strong><br>
+                - Scoring runs locally (client-side canvas analysis) for speed and privacy<br>
+                - Recommendations powered by Supabase Edge Functions + lightweight ML model<br>
+                - All feedback is positive — no "wrong" or "bad" language<br>
+                - CBC competency level mapping for educator reports<br>
+                - Celebration animations (confetti) on high scores</p>
+            <p><strong>Acceptance Criteria:</strong> Complete a page → AI score and feedback appear within 2 seconds;
+                recommendations show next suggested page</p>
+        </div>
+
+        <div class="feature-card">
+            <h4>FR-8: Learning Sidebars ("Did You Know?") <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Each coloring page includes age-appropriate tech facts and mini-lessons.</p>
             <ul>
                 <li>Collapsible sidebar with 3–5 facts per page</li>
@@ -579,7 +693,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-6: Achievements &amp; Rewards System <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-9: Achievements &amp; Rewards System <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Gamified reward system to encourage exploration and completion.</p>
             <ul>
                 <li>Badges: "First Robot!", "Color Explorer" (5 pages), "Tech Master" (all pages)</li>
@@ -592,7 +706,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-7: Parent Dashboard <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-10: Parent Dashboard <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Parents can monitor child engagement and learning progress.</p>
             <ul>
                 <li>Time spent per session and per page</li>
@@ -606,66 +720,26 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-8: Sharing &amp; Social Gallery <span class="priority-tag p2">P2 — Nice to Have</span></h4>
-            <p>Kids can share completed artwork in a moderated community gallery.</p>
+            <h4>FR-11: Sharing &amp; Social Gallery <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <p>Users share completed artwork in a moderated community gallery — available to all ages with
+                age-appropriate moderation.</p>
             <ul>
                 <li>"Share to Gallery" button on completed works</li>
                 <li>Moderated (AI + human review) before publishing</li>
-                <li>Kids can "star" others' artwork (no comments for safety)</li>
-                <li>Share link to family via email/message</li>
+                <li>"Star" reactions (no comments for child safety)</li>
+                <li>Share link to family via email/WhatsApp</li>
                 <li>No personally identifiable info displayed</li>
+                <li>Teen/Adult gallery tab separate from Kids gallery</li>
             </ul>
             <p><strong>Acceptance Criteria:</strong> Artwork appears in gallery after moderation; star counts visible
             </p>
-        </div>
-
-        <div class="feature-card">
-            <h4>FR-9: Brush Boundary Guidance ("Paint Inside the Lines") <span class="priority-tag p1">P1 — Should
-                    Have</span></h4>
-            <p>When using the freehand brush tool, detect if the child draws outside the coloring regions and display a
-                friendly, encouraging nudge.</p>
-            <ul>
-                <li>Real-time boundary detection using canvas hit-testing against SVG region paths</li>
-                <li>Friendly animated messages: "Oops! Try coloring inside the lines 🎯" or "Almost! Stay inside the
-                    shape 😊"</li>
-                <li>Gentle toast notification (non-blocking), auto-dismisses after 3 seconds</li>
-                <li>Haptic feedback on mobile devices when painting outside</li>
-                <li>Optional "Training Mode" with highlighted region borders for younger children</li>
-                <li>Configurable sensitivity (tolerant for ages 4–5, precise for ages 8–10)</li>
-                <li>No penalty — purely guidance, not punishment</li>
-            </ul>
-            <p><strong>Acceptance Criteria:</strong> Child paints outside a region boundary → friendly message appears
-                within 500ms; message disappears after 3s; no state loss</p>
-        </div>
-
-        <div class="feature-card">
-            <h4>FR-10: AI Coloring Feedback &amp; Scoring <span class="priority-tag p1">P1 — Should Have</span></h4>
-            <p>AI-powered feedback system that scores completed artwork, provides encouragement, and suggests
-                improvements.</p>
-            <ul>
-                <li><strong>Scoring engine:</strong> Evaluate coloring based on coverage (% of regions filled), neatness
-                    (brush strokes within boundaries), creativity (color variety), and completeness</li>
-                <li><strong>Score display:</strong> Fun, gamified score (e.g., ⭐⭐⭐ out of 5 stars, or "Amazing Artist!"
-                    / "Color Explorer" / "Keep Going!")</li>
-                <li><strong>AI suggestions:</strong> Gentle, age-appropriate correction prompts (e.g., "The rocket's
-                    nose cone is still white — try coloring it!" or "Great use of colors! Try using more than 3
-                    different colors next time")</li>
-                <li><strong>Celebration animations:</strong> Confetti / fireworks on high scores</li>
-                <li><strong>Progress over time:</strong> Track improvement across sessions; show "You're getting
-                    better!" trends in the parent dashboard</li>
-                <li><strong>No negative feedback:</strong> All messaging is positive and encouraging — "almost there!"
-                    instead of "wrong"</li>
-                <li><strong>CBC alignment:</strong> Scores map to CBC competency levels for teacher reports</li>
-            </ul>
-            <p><strong>Acceptance Criteria:</strong> Child completes a page → AI score appears with stars and
-                personalized feedback; suggestions are age-appropriate; scores persist in profile</p>
         </div>
 
         <h3>5.3 Phase 3 — Scale &amp; Platform (Months 7–12)</h3>
         <p><em>Goal: Expand platform reach and revenue channels</em></p>
 
         <div class="feature-card">
-            <h4>FR-11: Mobile Apps (iOS &amp; Android) <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-12: Mobile Apps (iOS &amp; Android) <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Native mobile apps wrapping the web experience with touch-optimized controls.</p>
             <ul>
                 <li>React Native or Capacitor wrapper</li>
@@ -679,7 +753,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-12: Educator / Classroom Tools <span class="priority-tag p1">P1 — Should Have</span></h4>
+            <h4>FR-13: Educator / Classroom Tools <span class="priority-tag p1">P1 — Should Have</span></h4>
             <p>Tools for teachers to use TechToons in classroom settings.</p>
             <ul>
                 <li>Class creation with join codes</li>
@@ -693,7 +767,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-13: Printable Worksheets <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <h4>FR-14: Printable Worksheets <span class="priority-tag p2">P2 — Nice to Have</span></h4>
             <p>Generate print-ready PDF worksheets from any coloring page.</p>
             <ul>
                 <li>"Print" button exports SVG as black-and-white PDF</li>
@@ -705,7 +779,7 @@
         </div>
 
         <div class="feature-card">
-            <h4>FR-14: API &amp; Partner Integrations <span class="priority-tag p2">P2 — Nice to Have</span></h4>
+            <h4>FR-15: API &amp; Partner Integrations <span class="priority-tag p2">P2 — Nice to Have</span></h4>
             <p>Open API for embedding TechToons in partner platforms.</p>
             <ul>
                 <li>Embeddable widget (iframe) for partner sites</li>
@@ -1076,21 +1150,22 @@
         <!-- 12. ROADMAP -->
         <h2>12. Roadmap Summary</h2>
         <div class="roadmap">Month 1–3 ▓▓▓▓▓▓▓░░░░░ Phase 1: Foundation
-            ├─ User accounts &amp; auth
-            ├─ Cloud save
-            ├─ Expand to 20+ pages
-            └─ Freemium + Stripe
+            ├─ Month 1: Interface intuitiveness & profile onboarding
+            ├─ User accounts & auth (all profile types)
+            ├─ Pinterest-style category home page
+            ├─ Content library expansion (20+ pages, 8 categories)
+            ├─ Cloud save & progress persistence
+            └─ Freemium + M-Pesa + Stripe
 
-            Month 4–6 ░░░░▓▓▓▓▓░░░ Phase 2: Engagement
-            ├─ Learning sidebars
-            ├─ Achievements &amp; badges
+            Month 4–6 ░░░░▓▓▓▓▓░░░ Phase 2: Engagement & AI
+            ├─ AI integration (scoring, boundary guidance, recommendations)
+            ├─ Learning sidebars & "Did You Know?" facts
+            ├─ Achievements & badges
             ├─ Parent dashboard
-            ├─ Brush boundary guidance
-            ├─ AI scoring &amp; feedback
-            └─ Community gallery
+            └─ Social gallery (all ages, age-separated)
 
             Month 7–12 ░░░░░░░▓▓▓▓▓ Phase 3: Scale
-            ├─ iOS &amp; Android apps
+            ├─ iOS & Android apps
             ├─ Classroom tools
             ├─ Printable worksheets
             └─ Partner API</div>
