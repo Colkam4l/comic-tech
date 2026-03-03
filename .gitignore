@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated PDF exports (regenerate with: npm run generate-pdfs)
+docs/*.pdf
