@@ -1,4 +1,7 @@
-# TechToons — User Personas (Kenya Market)
+# TechToons — User Personas
+
+**Platform:** TechToons — Creative Coloring for All Ages  
+**Market:** 🇰🇪 Kenya (East Africa) · **Date:** February 23, 2026 · **Version:** 1.2
 
 ---
 
@@ -125,3 +128,65 @@
 
 ### Quote
 > *"Finally, one app that works for my kindergartener AND my Grade 4 son — and I can pay with M-Pesa."*
+
+---
+
+## Persona 5: Brian — The Nairobi Teen Creative
+
+| | |
+|---|---|
+| **Age** | 15 |
+| **Grade** | Form 2 (CBC Secondary) |
+| **Interests** | Digital art, YouTube gaming channels, coding, anime, Afrofuturism |
+| **Device** | Samsung A-series Android phone, school laptop |
+
+### Goals
+- Express himself creatively through digital art and design
+- Build a portfolio of coloring work to share with friends online
+- Find apps that feel mature — not "babyish"
+
+### Frustrations
+- Most coloring apps feel designed for small children — he wants something stylish and expressive
+- Limited access to design tools like Procreate (expensive, iPad-only)
+- Wants content beyond tech: fashion, architecture, abstract art
+
+### How TechToons Helps
+- ✅ Teen profile shows mature, complex illustrations and abstract categories
+- ✅ Freehand brush + full color spectrum gives real artistic expression
+- ✅ Social gallery to share work with peers
+- ✅ Works perfectly on his Samsung A-series — no iPad needed
+- ✅ AI style suggestions help him improve ("Try a cooler palette for contrast")
+
+### Quote
+> *"It's actually fire — I used it to design my own Afrofuturist robot and posted it on the TechToons gallery."*
+
+---
+
+## Persona 6: Dr. Amina — The Mombasa Adult Creative
+
+| | |
+|---|---|
+| **Age** | 38 |
+| **Role** | Pediatric doctor at Coast General Hospital, Mombasa |
+| **Interests** | Mindfulness, Swahili art, botanical illustration, African patterns |
+| **Device** | iPhone and iPad (personal), hospital PC |
+
+### Goals
+- Decompress and relax after long hospital shifts
+- Create beautiful coloring art in the few minutes of free time she has
+- Discover new illustrations across food, nature, and African-themed categories
+
+### Frustrations
+- Most coloring apps are clearly built for kids — the UI feels childish and condescending
+- Premium apps are priced in USD; she prefers M-Pesa convenience
+- Limited variety of content themes; wants African-inspired and nature content
+
+### How TechToons Helps
+- ✅ Adult profile shows minimalist, clean UI with access to all content categories
+- ✅ Nature, Patterns, and Architecture categories satisfy her artistic taste
+- ✅ "Relaxation mode" option dims the UI for a calm, focused coloring session
+- ✅ KES 250/mo via M-Pesa is effortless
+- ✅ Export lets her share finished art on Instagram and WhatsApp
+
+### Quote
+> *"I color for 10 minutes after a night shift and it genuinely calms me. I never expected a coloring app to become part of my self-care routine."*
